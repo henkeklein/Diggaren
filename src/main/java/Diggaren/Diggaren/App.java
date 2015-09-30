@@ -11,5 +11,8 @@ public class App
     {
     	get("/kanaler", (req, res) -> "Hej");
         System.out.println( "Hello World!" );
+        
+        
+        get("/kanaler", (req, res) -> "Hej");
     }
 }
