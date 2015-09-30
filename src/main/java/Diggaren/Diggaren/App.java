@@ -13,6 +13,6 @@ public class App
         System.out.println( "Hello World!" );
         
         
-        get("/hej", (req, res) -> "Hej");
+        get("/hejigen", (req, res) -> "Hej");
     }
 }
