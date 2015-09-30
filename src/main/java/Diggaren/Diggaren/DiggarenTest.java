@@ -47,6 +47,7 @@ public class DiggarenTest {
 		GsonBuilder builder = new GsonBuilder();
 		Gson json = builder.create();
 		
+
 		SRBean envelope = null;
 
 		try {
