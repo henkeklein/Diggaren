@@ -48,9 +48,7 @@ public class DiggarenTest {
 		Gson json = builder.create();
 		
 		SRBean envelope = null;
-		
 
-		
 		try {
 			// Create the client that will call the API
 			httpclient = HttpClients.createDefault();
