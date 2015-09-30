@@ -13,6 +13,6 @@ public class App
         System.out.println( "Hello World!" );
         
         
-        get("/kanaler", (req, res) -> "Hej");
+        get("/hej", (req, res) -> "Hej");
     }
 }
