@@ -35,7 +35,7 @@ public class Test {
 	 *            at all.
 	 */
 	public static void main(String[] args) {
-		String baseUrl = "https://api.spotify.com/v1/search?query=?&offset=0&limit=20&type=artist&format=json";
+		String baseUrl = "https://api.spotify.com/v1/search?query=?&offset=0&limit=20&type=artist";
 
 		HttpClient httpclient = null;
 		HttpGet httpGet = null;
@@ -102,8 +102,8 @@ public class Test {
 	public static void printSong(ArtistBean artistBean) {
 		int nbrOfNames = 0;
 
-		System.out.println("Artisten heter: " + artistBean.getHref() + "\n");
-		System.out.println("Låten heter: " + artistBean.getItems() + "\n");
+		System.out.println("Artisten heter: " + artistBean.getItems() + "\n");
+	//	System.out.println("Låten heter: " + artistBean.getItems() + "\n");
 
 	}
 }

@@ -17,13 +17,13 @@ public class TrackBean {
 	private String next;
 
 	@SerializedName("offset")
-	private int offset;
+	private String offset;
 
 	@SerializedName("previous")
 	private String previous;
 
 	@SerializedName("total")
-	private int total;
+	private String total;
 
 	public TrackBean() {
 
@@ -65,11 +65,11 @@ public class TrackBean {
 
 
 
-	public int getOffset() {
+	public String getOffset() {
 		return offset;
 		}
 
-	public void setOffset(int offset) {
+	public void setOffset(String offset) {
 		this.offset = offset;
 		}
 
@@ -79,17 +79,17 @@ public class TrackBean {
 
 	public void setPrevious(String previous) {
 		this.previous = previous;
-		}
+	}
 
 
 
-	public int getTotal() {
+	public String getTotal() {
 		return total;
 	}
 
 
 
-	public void setTotal(int total) {
+	public void setTotal(String total) {
 		this.total = total;
 	}
 

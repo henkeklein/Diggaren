@@ -8,22 +8,22 @@ public class ArtistBean {
 	private String href;
 
 	@SerializedName("items")
-	private ArtistBean[] items;
+	private String items;
 
 	@SerializedName("limit")
-	private int limit;
+	private String limit;
 
 	@SerializedName("next")
 	private String next;
 
 	@SerializedName("offset")
-	private int offset;
+	private String offset;
 
 	@SerializedName("previous")
 	private String previous;
 
 	@SerializedName("total")
-	private int total;
+	private String total;
 
 	public ArtistBean() {
 
@@ -41,25 +41,25 @@ public class ArtistBean {
 
 
 
-	public ArtistBean[] getItems() {
+	public String getItems() {
 			return items;
 		}
 
 
 
-	public void setItems(ArtistBean[] items) {
+	public void setItems(String items) {
 			this.items = items;
 		}
 
 
 
-	public int getLimit() {
+	public String getLimit() {
 			return limit;
 		}
 
 
 
-	public void setLimit(int limit) {
+	public void setLimit(String limit) {
 			this.limit = limit;
 		}
 
@@ -77,13 +77,13 @@ public class ArtistBean {
 
 
 
-	public int getOffset() {
+	public String getOffset() {
 			return offset;
 		}
 
 
 
-	public void setOffset(int offset) {
+	public void setOffset(String offset) {
 			this.offset = offset;
 		}
 
@@ -101,13 +101,13 @@ public class ArtistBean {
 
 
 
-	public int getTotal() {
+	public String getTotal() {
 			return total;
 		}
 
 
 
-	public void setTotal(int total) {
+	public void setTotal(String total) {
 			this.total = total;
 		}
 
