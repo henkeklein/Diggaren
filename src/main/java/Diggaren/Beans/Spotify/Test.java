@@ -35,7 +35,7 @@ public class Test {
 	 *            at all.
 	 */
 	public static void main(String[] args) {
-		String baseUrl = "https://api.spotify.com/v1/search?query=?&offset=0&limit=20&type=artist";
+		String baseUrl = "https://api.spotify.com/v1/search?query=Queen&offset=0&limit=20&type=artist";
 
 		HttpClient httpclient = null;
 		HttpGet httpGet = null;
@@ -72,9 +72,11 @@ public class Test {
 					// Yep, that went well. Let's print today's information.
 					// As the API will return a list of days, we'll need to
 					// fetch "today", which will be the first and only object.
-					for (Entry<String, ArtistBean> song : envelope.artists.entrySet()) {
-						printSong(song.getValue());
-					}
+//					for (Entry<String, ArtistBean song : envelope.artists.entrySet()) {
+//						printSong(song.getValue());
+//					}
+					
+					printSong(envelope.artists);
 
 				} catch (Exception e) {
 					// Something didn't went well. No calls for us.
@@ -102,8 +104,9 @@ public class Test {
 	public static void printSong(ArtistBean artistBean) {
 		int nbrOfNames = 0;
 
-		System.out.println("Artisten heter: " + artistBean.getItems() + "\n");
-	//	System.out.println("Låten heter: " + artistBean.getItems() + "\n");
+		System.out.println("Länk: " + artistBean.getHref() + "\n");
+		System.out.println("Total: " + artistBean.getTotal() + "\n");
+		
 
 	}
 }

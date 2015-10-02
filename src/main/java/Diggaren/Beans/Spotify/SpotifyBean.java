@@ -9,10 +9,11 @@ public class SpotifyBean {
 	
 
 	@SerializedName("artists")
-	public Map<String, ArtistBean> artists = new TreeMap<String, ArtistBean>();
+//	public Map<String, ArtistBean> artists = new TreeMap<String, ArtistBean>();
 
+	public ArtistBean artists = new ArtistBean();
 
-
+	
 	// @SerializedName("track")
 	// private TrackBean beanInfo;
 
@@ -36,7 +37,7 @@ public class SpotifyBean {
 	// this.beanInfo = beanInfo;
 	// }
 
-	public Map<String, ArtistBean> getPlaylist() {
+	public ArtistBean getPlaylist() {
 		return artists;
 		}
 	}
