@@ -35,7 +35,7 @@ public class Test {
 	 *            at all.
 	 */
 	public static void main(String[] args) {
-		String baseUrl = "https://api.spotify.com/v1/search?query=lordi&offset=0&limit=20&type=artist&format=json";
+		String baseUrl = "https://api.spotify.com/v1/search?query=?&offset=0&limit=20&type=artist&format=json";
 
 		HttpClient httpclient = null;
 		HttpGet httpGet = null;
@@ -72,7 +72,7 @@ public class Test {
 					// Yep, that went well. Let's print today's information.
 					// As the API will return a list of days, we'll need to
 					// fetch "today", which will be the first and only object.
-					for (Entry<String, ArtistBean> song : envelope.playlist.entrySet()) {
+					for (Entry<String, ArtistBean> song : envelope.artists.entrySet()) {
 						printSong(song.getValue());
 					}
 
@@ -104,8 +104,6 @@ public class Test {
 
 		System.out.println("Artisten heter: " + artistBean.getHref() + "\n");
 		System.out.println("Låten heter: " + artistBean.getItems() + "\n");
-		System.out.println("Låten heter: " + artistBean.getLimit() + "\n");
-		System.out.println("Låten heter: " + artistBean.getTotal() + "\n");
 
 	}
 }

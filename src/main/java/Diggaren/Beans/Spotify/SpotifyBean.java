@@ -8,13 +8,13 @@ import com.google.gson.annotations.SerializedName;
 public class SpotifyBean {
 	
 
-		@SerializedName("playlist")
-	public Map<String, ArtistBean> playlist = new TreeMap<String, ArtistBean>();
+	@SerializedName("artists")
+	public Map<String, ArtistBean> artists = new TreeMap<String, ArtistBean>();
 
 
 
-		@SerializedName("channel")
-		private TrackBean beanInfo;
+	// @SerializedName("track")
+	// private TrackBean beanInfo;
 
 
 		/**
@@ -26,18 +26,18 @@ public class SpotifyBean {
 
 
 
-		public TrackBean getBeanInfo() {
-			return beanInfo;
-		}
-
-
-
-		public void setBeanInfo(TrackBean beanInfo) {
-			this.beanInfo = beanInfo;
-		}
+	// public TrackBean getBeanInfo() {
+	// return beanInfo;
+	// }
+	//
+	//
+	//
+	// public void setBeanInfo(TrackBean beanInfo) {
+	// this.beanInfo = beanInfo;
+	// }
 
 	public Map<String, ArtistBean> getPlaylist() {
-			return playlist;
+		return artists;
 		}
 	}
 
