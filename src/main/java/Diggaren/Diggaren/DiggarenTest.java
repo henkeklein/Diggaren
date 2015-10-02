@@ -23,7 +23,7 @@ import Diggaren.Diggaren.beans.SongBean;
  * A small program that retrieves information about today from an external API
  * and presents this info in a more readable way as a console print out.
  * 
- * @author Johan Holmberg
+ * @author
  */
 public class DiggarenTest {
 
@@ -101,8 +101,8 @@ public class DiggarenTest {
 	public static void printSong(SongBean bean) {
 		int nbrOfNames = 0;
 		
-		System.out.println("Låten heter " + bean.getTitle());
-		System.out.println("Artisten heter " + bean.getArtist());
+		System.out.println("Artisten heter: " + bean.getArtist() + "\n");
+		System.out.println("Låten heter: " + bean.getTitle() + "\n");
 
 	}
 }
