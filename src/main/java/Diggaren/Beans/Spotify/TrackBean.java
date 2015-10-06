@@ -2,6 +2,11 @@ package Diggaren.Beans.Spotify;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Bean that maps the JSON response from Spotify API
+ * @author danielhertzman-ericson
+ *
+ */
 public class TrackBean {
 
 	@SerializedName("href")
@@ -53,44 +58,36 @@ public class TrackBean {
 		this.limit = limit;
 	}
 
-		public String getNext() {
+	public String getNext() {
 		return next;
 	}
-
-
 
 	public void setNext(String next) {
 		this.next = next;
 	}
 
-
-
 	public String getOffset() {
 		return offset;
-		}
+	}
 
 	public void setOffset(String offset) {
 		this.offset = offset;
-		}
+	}
 
 	public String getPrevious() {
 		return previous;
-		}
+	}
 
 	public void setPrevious(String previous) {
 		this.previous = previous;
 	}
 
-
-
 	public String getTotal() {
 		return total;
 	}
-
-
 
 	public void setTotal(String total) {
 		this.total = total;
 	}
 
-	}
+}
