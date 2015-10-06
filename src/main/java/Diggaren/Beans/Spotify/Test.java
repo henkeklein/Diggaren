@@ -5,7 +5,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.util.Map.Entry;
+
+import javax.swing.JOptionPane;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -35,7 +36,8 @@ public class Test {
 	 *            at all.
 	 */
 	public static void main(String[] args) {
-		String baseUrl = "https://api.spotify.com/v1/search?query=Queen&offset=0&limit=20&type=artist";
+		String artist = JOptionPane.showInputDialog("Name an artist");
+		String baseUrl = "https://api.spotify.com/v1/search?query="+artist+"&offset=0&limit=20&type=artist";
 
 		HttpClient httpclient = null;
 		HttpGet httpGet = null;
@@ -102,10 +104,10 @@ public class Test {
 	 *            The bean containing all information about today.
 	 */
 	public static void printSong(ArtistBean artistBean) {
-		int nbrOfNames = 0;
 
 		System.out.println("Länk: " + artistBean.getHref() + "\n");
 		System.out.println("Total: " + artistBean.getTotal() + "\n");
+		System.out.println("Uri: " + artistBean.getUri() +"\n");
 		
 
 	}
