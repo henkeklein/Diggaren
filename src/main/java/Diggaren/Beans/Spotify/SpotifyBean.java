@@ -6,26 +6,20 @@ import java.util.TreeMap;
 import com.google.gson.annotations.SerializedName;
 
 public class SpotifyBean {
-	
 
 	@SerializedName("artists")
-//	public Map<String, ArtistBean> artists = new TreeMap<String, ArtistBean>();
+	// public Map<String, ArtistBean> artists = new TreeMap<String,
+	// ArtistBean>();
 
 	public ArtistBean artists = new ArtistBean();
 
-	
 	// @SerializedName("track")
 	// private TrackBean beanInfo;
 
-
-		/**
-		 * Being a bean, the class needs an empty, public constructor.
-		 */
-		public SpotifyBean() {
-			
-		}
-
-
+	/**
+	 * Being a bean, the class needs an empty, public constructor.
+	 */
+	public SpotifyBean() {}
 
 	// public TrackBean getBeanInfo() {
 	// return beanInfo;
@@ -39,8 +33,5 @@ public class SpotifyBean {
 
 	public ArtistBean getPlaylist() {
 		return artists;
-		}
 	}
-
-
-
+}
