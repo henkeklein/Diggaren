@@ -29,5 +29,5 @@ public class ChannelBean {
 	public ChannelBean() {
 
 	}
-
+	
 }

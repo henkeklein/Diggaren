@@ -1,10 +1,16 @@
 package Diggaren.Diggaren;
+import static spark.Spark.get;
+import spark.Spark.*;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+
+import javax.swing.JOptionPane;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -16,6 +22,7 @@ import org.apache.http.impl.client.HttpClients;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import Diggaren.Diggaren.beans.ChannelBean;
 import Diggaren.Diggaren.beans.SRBean;
 import Diggaren.Diggaren.beans.SongBean;
 
@@ -34,7 +41,8 @@ public class DiggarenTest {
 	 * 		  them at all.
 	 */
 	public static void main(String[] args) {
-		String baseUrl = "http://api.sr.se/api/v2/playlists/rightnow?channelid=2576&format=json";
+		String channel = JOptionPane.showInputDialog("Channel?");
+		String baseUrl = "http://api.sr.se/api/v2/playlists/rightnow?channelid="+ channel+ "&format=json";
 		
 		HttpClient httpclient = null;
 		HttpGet httpGet = null;
@@ -72,10 +80,19 @@ public class DiggarenTest {
 					// Yep, that went well. Let's print today's information.
 					// As the API will return a list of days, we'll need to
 					// fetch "today", which will be the first and only object.
-					for (Map.Entry<String, SongBean> song : envelope.playlist.entrySet()) {
-						printSong(song.getValue());
+					for (Entry<String, SongBean> song : envelope.playlist.entrySet()) {
+						printSong(song.getValue());	
 					}
-					
+					get("/kanal", (req, res) -> {
+						SRBean b = new SRBean();
+			        	List<ChannelBean> list = b.getAll();
+			        	String allUni = "";
+			    		for (ChannelBean bean : list) {
+			    			System.out.println(bean.getId() + ": " + bean.getName());
+			    			allUni += ("<p>" + bean.getId() + ": " + bean.getName() + "</p>");
+			    		}
+			    		return allUni;
+			        });
 				} catch (Exception e) {
 					// Something didn't went well. No calls for us.
 					e.printStackTrace();
@@ -89,6 +106,15 @@ public class DiggarenTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		reader = new InputStreamReader(data);
+		json = builder.create();
+		envelope = json.fromJson(reader, SRBean.class);
+		
+		// Yep, that went well. Let's print today's information.
+		// As the API will return a list of days, we'll need to
+		// fetch "today", which will be the first and only object.
+		
 	}
 
 	/**
@@ -98,11 +124,11 @@ public class DiggarenTest {
 	 * 
 	 * @param bean The bean containing all information about today.
 	 */
-	public static void printSong(SongBean bean) {
+	public static SongBean printSong(SongBean bean) {
 		int nbrOfNames = 0;
 		
 		System.out.println("Artisten heter: " + bean.getArtist() + "\n");
 		System.out.println("Låten heter: " + bean.getTitle() + "\n");
-
+		return bean;
 	}
 }

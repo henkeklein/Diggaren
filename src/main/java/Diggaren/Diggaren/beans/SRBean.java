@@ -1,5 +1,8 @@
 package Diggaren.Diggaren.beans;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -14,8 +17,6 @@ public class SRBean {
 
 	@SerializedName("channel")
 	private ChannelBean beanInfo;
-
-
 
 	/**
 	 * Being a bean, the class needs an empty, public constructor.
@@ -38,5 +39,17 @@ public class SRBean {
 
 	public Map<String, SongBean> getPlaylist() {
 		return playlist;
+	}
+	
+	public List<ChannelBean> getAll (){
+		List <ChannelBean> bean = new ArrayList<ChannelBean>();
+		Iterator<ChannelBean> iter = bean.iterator();
+		while (iter.hasNext()){
+			ChannelBean b = new ChannelBean();
+			b.getId();
+			b.getName();
+		}
+		return bean;
+		
 	}
 }
