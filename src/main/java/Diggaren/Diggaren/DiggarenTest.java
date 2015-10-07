@@ -83,16 +83,6 @@ public class DiggarenTest {
 					for (Entry<String, SongBean> song : envelope.playlist.entrySet()) {
 						printSong(song.getValue());	
 					}
-					get("/kanal", (req, res) -> {
-						SRBean b = new SRBean();
-			        	List<ChannelBean> list = b.getAll();
-			        	String allUni = "";
-			    		for (ChannelBean bean : list) {
-			    			System.out.println(bean.getId() + ": " + bean.getName());
-			    			allUni += ("<p>" + bean.getId() + ": " + bean.getName() + "</p>");
-			    		}
-			    		return allUni;
-			        });
 				} catch (Exception e) {
 					// Something didn't went well. No calls for us.
 					e.printStackTrace();
