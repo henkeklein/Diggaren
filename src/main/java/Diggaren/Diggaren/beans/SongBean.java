@@ -1,5 +1,8 @@
 package Diggaren.Diggaren.beans;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import com.google.gson.annotations.SerializedName;
 
 public class SongBean {
@@ -41,6 +44,13 @@ public class SongBean {
 	}
 
 	public String getTitle() {
+		if(title != null){
+		try {
+			title = URLEncoder.encode(title,"UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+	}
 		return title;
 	}
 

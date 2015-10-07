@@ -12,7 +12,7 @@ import com.google.gson.annotations.SerializedName;
 public class SpotifyBean {
 	
 
-	@SerializedName("artists")
+	@SerializedName("tracks")
 //	public List<ArtistBean> artists = new ArrayList<ArtistBean>();
 //	public Map<String, ArtistBean> artists = new TreeMap<String, ArtistBean>();
 	public ArtistBean artists = new ArtistBean();

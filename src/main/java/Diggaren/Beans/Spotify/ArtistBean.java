@@ -12,8 +12,6 @@ public class ArtistBean {
 	@SerializedName ("items")
 	public ArrayList<ItemBean> items = new ArrayList<ItemBean>();
 
-//	@SerializedName("items")
-//	private String items;
 //
 //	@SerializedName("limit")
 //	private String limit;

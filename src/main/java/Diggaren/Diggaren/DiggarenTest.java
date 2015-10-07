@@ -40,7 +40,7 @@ public class DiggarenTest {
 	 * @param args Arguments from the command line. This program won't honor
 	 * 		  them at all.
 	 */
-	public static void main(String[] args) {
+	public void startRadio() {
 		String channel = JOptionPane.showInputDialog("Channel?");
 		String baseUrl = "http://api.sr.se/api/v2/playlists/rightnow?channelid="+ channel+ "&format=json";
 		
@@ -115,10 +115,6 @@ public class DiggarenTest {
 	 * @param bean The bean containing all information about today.
 	 */
 	public static void printSong(SongBean bean) {
-		int nbrOfNames = 0;
-		
-		System.out.println("Artisten heter: " + bean.getArtist() + "\n");
 		System.out.println("Låten heter: " + bean.getTitle() + "\n");
-		System.out.println("Album: " + bean.getAlbumname());
 	}
 }

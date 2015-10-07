@@ -13,8 +13,6 @@ public class SRBean {
 	@SerializedName("playlist")
 	public Map<String, SongBean> playlist = new TreeMap<String, SongBean>();
 
-
-
 	@SerializedName("channel")
 	private ChannelBean beanInfo;
 

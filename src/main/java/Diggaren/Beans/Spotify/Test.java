@@ -6,8 +6,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map.Entry;
 
 import javax.swing.JOptionPane;
@@ -18,6 +22,8 @@ import org.apache.http.StatusLine;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClients;
+
+import Diggaren.Diggaren.beans.SongBean;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -43,11 +49,13 @@ public class Test {
 	 * @param args
 	 *            Arguments from the command line. This program won't honor them
 	 *            at all.
+	 * @throws UnsupportedEncodingException 
 	 */
-	public static void main(String[] args) {
-		String artist = JOptionPane.showInputDialog("Name an artist");
-		String baseUrl = "https://api.spotify.com/v1/search?query=" + artist + "&offset=0&limit=1&type=artist";
+	public void startSpotify() {
+		SongBean bean = new SongBean();
 
+		String baseUrl = "https://api.spotify.com/v1/search?type=track&limit=50&q=%27track:"+ bean.getTitle();
+	
 		HttpClient httpclient = null;
 		HttpGet httpGet = null;
 		HttpResponse response = null;
@@ -73,7 +81,6 @@ public class Test {
 				// All went well. Let's fetch the data
 				entity = response.getEntity();
 				data = entity.getContent();
-				System.out.println(baseUrl);
 
 				try {
 					// Attempt to parse the data as JSON
@@ -81,7 +88,7 @@ public class Test {
 					json = builder.create();
 					envelope = json.fromJson(reader, SpotifyBean.class);
 				
-					for (int i = 0; i < envelope.artists.items.size(); i++){
+					for (int i = 0; i < 1; i++){
 						printUrl(envelope.artists.items.get(i));						
 					}
 					
@@ -100,11 +107,13 @@ public class Test {
 			e.printStackTrace();
 		}
 	}
-
 	private static void printUrl(ItemBean itemBean) {
+		ArrayList<String> arr = new ArrayList<String>();
+		for (int i =0; i < 1; i++){
+			arr.add(itemBean.getLink().getUrl());
+			System.out.println("URL länk: " + arr + "\n");			
 		
-		System.out.println("URL länk: " + itemBean.getLink().getUrl() + "\n");
-		
+		}
 	}
 	
 }
