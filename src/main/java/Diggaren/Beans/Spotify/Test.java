@@ -1,10 +1,13 @@
 package Diggaren.Beans.Spotify;
 
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.net.URL;
+import java.nio.charset.Charset;
 
 import javax.swing.JOptionPane;
 
@@ -17,6 +20,10 @@ import org.apache.http.impl.client.HttpClients;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 
 
@@ -37,7 +44,7 @@ public class Test {
 	 */
 	public static void main(String[] args) {
 		String artist = JOptionPane.showInputDialog("Name an artist");
-		String baseUrl = "https://api.spotify.com/v1/search?query="+artist+"&offset=0&limit=20&type=artist";
+		String baseUrl = "https://api.spotify.com/v1/search?query="+artist+"&offset=0&limit=1&type=artist";
 
 		HttpClient httpclient = null;
 		HttpGet httpGet = null;
@@ -77,8 +84,16 @@ public class Test {
 //					for (Entry<String, ArtistBean song : envelope.artists.entrySet()) {
 //						printSong(song.getValue());
 //					}
+					JSONObject artist2 = readJsonFromUrl(baseUrl);
+					if (artist2.toString().contains("https://open.spotify.com/artist/1dfeR4HaWDbWqFHLkxsg1d")) {
+						String s = "https://open.spotify.com/artist/1dfeR4HaWDbWqFHLkxsg1d";
+						System.out.println(s);
+					}
+					System.out.println("\n--------------------------------------\n");
+					System.out.println(artist2);
 					
-					printSong(envelope.artists);
+					
+			//		printSong(envelope.artists);
 
 				} catch (Exception e) {
 					// Something didn't went well. No calls for us.
@@ -111,6 +126,27 @@ public class Test {
 		
 
 	}
+	
+	public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
+	    InputStream is = new URL(url).openStream();
+	    try {
+	      BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
+	      String jsonText = readAll(rd);
+	      JSONObject json = new JSONObject(jsonText);
+	      return json;
+	    } finally {
+	      is.close();
+	    }
+	  }
+	
+	private static String readAll(Reader rd) throws IOException {
+	    StringBuilder sb = new StringBuilder();
+	    int cp;
+	    while ((cp = rd.read()) != -1) {
+	      sb.append((char) cp);
+	    }
+	    return sb.toString();
+	  }
 }
 
 
