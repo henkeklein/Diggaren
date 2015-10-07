@@ -1,5 +1,7 @@
 package Diggaren.Beans.Spotify;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -9,9 +11,9 @@ public class SpotifyBean {
 	
 
 	@SerializedName("artists")
-//	public Map<String, ArtistBean> artists = new TreeMap<String, ArtistBean>();
+	public List<ArtistBean> artists = new ArrayList<ArtistBean>();
 
-	public ArtistBean artists = new ArtistBean();
+//	public ArtistBean artists = new ArtistBean();
 
 	
 	// @SerializedName("track")
@@ -37,7 +39,7 @@ public class SpotifyBean {
 	// this.beanInfo = beanInfo;
 	// }
 
-	public ArtistBean getPlaylist() {
+	public List<ArtistBean> getPlaylist() {
 		return artists;
 		}
 	}

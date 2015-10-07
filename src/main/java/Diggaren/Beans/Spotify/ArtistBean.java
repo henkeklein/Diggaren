@@ -1,11 +1,16 @@
 package Diggaren.Beans.Spotify;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.gson.annotations.SerializedName;
 
 public class ArtistBean {
 
 	@SerializedName("href")
 	private String href;
+	
+	public List<ItemBean> items = new ArrayList<ItemBean>();
 
 //	@SerializedName("items")
 //	private String items;
@@ -21,6 +26,14 @@ public class ArtistBean {
 //
 //	@SerializedName("previous")
 //	private String previous;
+
+	public List<ItemBean> getItems() {
+		return items;
+	}
+
+	public void setItems(List<ItemBean> items) {
+		this.items = items;
+	}
 
 	@SerializedName("total")
 	private String total;
