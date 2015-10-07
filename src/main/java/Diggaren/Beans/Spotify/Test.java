@@ -78,19 +78,13 @@ public class Test {
 					json = builder.create();
 					envelope = json.fromJson(reader, SpotifyBean.class);
 
-					// Yep, that went well. Let's print today's information.
-					// As the API will return a list of days, we'll need to
-					// fetch "today", which will be the first and only object.
 //					for (Entry<String, ArtistBean song : envelope.artists.entrySet()) {
 //						printSong(song.getValue());
 //					}
-					JSONObject artist2 = readJsonFromUrl(baseUrl);
-					if (artist2.toString().contains("https://open.spotify.com/artist/1dfeR4HaWDbWqFHLkxsg1d")) {
-						String s = "https://open.spotify.com/artist/1dfeR4HaWDbWqFHLkxsg1d";
-						System.out.println(s);
-					}
-					System.out.println("\n--------------------------------------\n");
-					System.out.println(artist2);
+					
+					
+					JSONObject jObj = readJsonFromUrl(baseUrl);
+					System.out.println(jObj);
 					
 					
 			//		printSong(envelope.artists);
@@ -110,22 +104,12 @@ public class Test {
 		}
 	}
 
-	/**
-	 * Prints info about today. This method makes no effort trying to be of
-	 * great coding standard. In fact, it looks like crap, but works well enough
-	 * for this example.
-	 * 
-	 * @param artistBean
-	 *            The bean containing all information about today.
-	 */
 	public static void printSong(ArtistBean artistBean) {
-
 		System.out.println("Länk: " + artistBean.getHref() + "\n");
 		System.out.println("Total: " + artistBean.getTotal() + "\n");
-		System.out.println("Uri: " + artistBean.getUri() +"\n");
-		
 
 	}
+	
 	
 	public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
 	    InputStream is = new URL(url).openStream();
@@ -147,6 +131,10 @@ public class Test {
 	    }
 	    return sb.toString();
 	  }
+	
+	private static String readID(Reader rd) throws IOException {
+		return null;
+	}
 }
 
 
