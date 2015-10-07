@@ -42,7 +42,6 @@ import org.json.JSONObject;
  * @author
  */
 public class Test {
-	
 	/**
 	 * The main method that's used to run the program.
 	 * 
@@ -51,10 +50,15 @@ public class Test {
 	 *            at all.
 	 * @throws UnsupportedEncodingException 
 	 */
-	public void startSpotify() {
-		SongBean bean = new SongBean();
+	public void startSpotify(SongBean bean) {
+		String title = bean.getTitle();
+			try {
+				title = URLEncoder.encode(title,"UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
 
-		String baseUrl = "https://api.spotify.com/v1/search?type=track&limit=50&q=%27track:"+ bean.getTitle();
+		String baseUrl = "https://api.spotify.com/v1/search?type=track&limit=50&q=%27track:"+ title;
 	
 		HttpClient httpclient = null;
 		HttpGet httpGet = null;
@@ -114,6 +118,7 @@ public class Test {
 			System.out.println("URL länk: " + arr + "\n");			
 		
 		}
+		
 	}
 	
 }

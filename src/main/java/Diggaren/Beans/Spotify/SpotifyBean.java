@@ -15,7 +15,7 @@ public class SpotifyBean {
 	@SerializedName("tracks")
 //	public List<ArtistBean> artists = new ArrayList<ArtistBean>();
 //	public Map<String, ArtistBean> artists = new TreeMap<String, ArtistBean>();
-	public ArtistBean artists = new ArtistBean();
+	public ArtistBean track = new ArtistBean();
 
 	
 	// @SerializedName("track")
@@ -42,8 +42,16 @@ public class SpotifyBean {
 	// }
 
 	public ArtistBean getPlaylist() {
-		return artists;
+		return track;
 		}
+
+
+
+	public String getUrl() {
+		
+		return null;
+	}
+
 	}
 
 

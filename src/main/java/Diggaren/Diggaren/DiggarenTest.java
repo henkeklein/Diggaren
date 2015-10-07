@@ -33,15 +33,14 @@ import Diggaren.Diggaren.beans.SongBean;
  * @author
  */
 public class DiggarenTest {
-
+	SongBean bean;
 	/**
 	 * The main method that's used to run the program.
 	 * 
 	 * @param args Arguments from the command line. This program won't honor
 	 * 		  them at all.
 	 */
-	public void startRadio() {
-		String channel = JOptionPane.showInputDialog("Channel?");
+	public void startRadio(ChannelBean channel) {
 		String baseUrl = "http://api.sr.se/api/v2/playlists/rightnow?channelid="+ channel+ "&format=json";
 		
 		HttpClient httpclient = null;
@@ -116,5 +115,10 @@ public class DiggarenTest {
 	 */
 	public static void printSong(SongBean bean) {
 		System.out.println("Låten heter: " + bean.getTitle() + "\n");
+	}
+	
+	public SongBean getSong(){
+		return bean;
+		
 	}
 }

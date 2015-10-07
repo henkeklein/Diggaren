@@ -44,13 +44,7 @@ public class SongBean {
 	}
 
 	public String getTitle() {
-		if(title != null){
-		try {
-			title = URLEncoder.encode(title,"UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-	}
+	
 		return title;
 	}
 
