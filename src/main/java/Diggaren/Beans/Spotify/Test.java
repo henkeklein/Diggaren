@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.Map.Entry;
 
 import javax.swing.JOptionPane;
 
@@ -44,8 +45,8 @@ public class Test {
 	 *            at all.
 	 */
 	public static void main(String[] args) {
-//		String artist = JOptionPane.showInputDialog("Name an artist");
-		String baseUrl = "https://api.spotify.com/v1/search?query=Queen&offset=0&limit=1&type=artist";
+		String artist = JOptionPane.showInputDialog("Name an artist");
+		String baseUrl = "https://api.spotify.com/v1/search?query=" + artist + "&offset=0&limit=1&type=artist";
 
 		HttpClient httpclient = null;
 		HttpGet httpGet = null;
@@ -72,22 +73,18 @@ public class Test {
 				// All went well. Let's fetch the data
 				entity = response.getEntity();
 				data = entity.getContent();
+				System.out.println(baseUrl);
 
 				try {
 					// Attempt to parse the data as JSON
 					reader = new InputStreamReader(data);
 					json = builder.create();
 					envelope = json.fromJson(reader, SpotifyBean.class);
-
-//					for (Entry<String, ArtistBean song : envelope.artists.entrySet()) {
-//						printSong(song.getValue());
-//					}
+				
+					for (int i = 0; i < envelope.artists.items.size(); i++){
+						printUrl(envelope.artists.items.get(i));						
+					}
 					
-					
-					
-					
-					
-					printSong(envelope.artists);
 
 				} catch (Exception e) {
 					// Something didn't went well. No calls for us.
@@ -104,10 +101,10 @@ public class Test {
 		}
 	}
 
-	public static void printSong(ArtistBean artistBean) {
-		System.out.println("Länk: " + artistBean.getHref() + "\n");
-		System.out.println("Total: " + artistBean.getTotal() + "\n");
-
+	private static void printUrl(ItemBean itemBean) {
+		
+		System.out.println("URL länk: " + itemBean.getLink().getUrl() + "\n");
+		
 	}
 	
 }

@@ -114,11 +114,11 @@ public class DiggarenTest {
 	 * 
 	 * @param bean The bean containing all information about today.
 	 */
-	public static SongBean printSong(SongBean bean) {
+	public static void printSong(SongBean bean) {
 		int nbrOfNames = 0;
 		
 		System.out.println("Artisten heter: " + bean.getArtist() + "\n");
 		System.out.println("Låten heter: " + bean.getTitle() + "\n");
-		return bean;
+		System.out.println("Album: " + bean.getAlbumname());
 	}
 }

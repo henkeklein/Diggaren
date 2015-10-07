@@ -9,8 +9,8 @@ public class ArtistBean {
 
 	@SerializedName("href")
 	private String href;
-	
-	public List<ItemBean> items = new ArrayList<ItemBean>();
+	@SerializedName ("items")
+	public ArrayList<ItemBean> items = new ArrayList<ItemBean>();
 
 //	@SerializedName("items")
 //	private String items;
@@ -31,9 +31,6 @@ public class ArtistBean {
 		return items;
 	}
 
-	public void setItems(List<ItemBean> items) {
-		this.items = items;
-	}
 
 	@SerializedName("total")
 	private String total;

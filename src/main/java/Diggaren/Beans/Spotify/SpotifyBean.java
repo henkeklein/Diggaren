@@ -5,15 +5,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import Diggaren.Diggaren.beans.SongBean;
+
 import com.google.gson.annotations.SerializedName;
 
 public class SpotifyBean {
 	
 
 	@SerializedName("artists")
-	public List<ArtistBean> artists = new ArrayList<ArtistBean>();
-
-//	public ArtistBean artists = new ArtistBean();
+//	public List<ArtistBean> artists = new ArrayList<ArtistBean>();
+//	public Map<String, ArtistBean> artists = new TreeMap<String, ArtistBean>();
+	public ArtistBean artists = new ArtistBean();
 
 	
 	// @SerializedName("track")
@@ -39,7 +41,7 @@ public class SpotifyBean {
 	// this.beanInfo = beanInfo;
 	// }
 
-	public List<ArtistBean> getPlaylist() {
+	public ArtistBean getPlaylist() {
 		return artists;
 		}
 	}
