@@ -1,20 +1,13 @@
 package Diggaren.Beans.Spotify;
 
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
-import java.net.URL;
 import java.net.URLEncoder;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map.Entry;
-
-import javax.swing.JOptionPane;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -23,35 +16,17 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClients;
 
-import Diggaren.Diggaren.DiggarenTest;
-import Diggaren.Diggaren.beans.SongBean;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 
 
 
-/**
- * A small program that retrieves information about today from an external API
- * and presents this info in a more readable way as a console print out.
- * 
- * @author
- */
 public class Test {
-	/**
-	 * The main method that's used to run the program.
-	 * 
-	 * @param args
-	 *            Arguments from the command line. This program won't honor them
-	 *            at all.
-	 * @throws UnsupportedEncodingException 
-	 */
 	SpotifyBean spotifyBean;
+	ItemBean itemBean;
+
 	public void startSpotify(String bean) {
 
 		String title = bean;
@@ -120,12 +95,15 @@ public class Test {
 		ArrayList<String> arr = new ArrayList<String>();
 		for (int i =0; i < 1; i++){
 			arr.add(itemBean.getLink().getUrl());
-			System.out.println("URL länk: " + arr + "\n");			
+			System.out.println("URL länk: " + arr + "\n");	
+			
+			
 		}
 	}
 	
 	public SpotifyBean getSpotify() {
 		return spotifyBean;
+
 	}
 	
 }

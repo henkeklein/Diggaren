@@ -1,11 +1,10 @@
 package StartPackage;
 
 import static spark.Spark.get;
+
 import Diggaren.Beans.Spotify.SpotifyBean;
 import Diggaren.Beans.Spotify.Test;
 import Diggaren.Diggaren.DiggarenTest;
-import Diggaren.Diggaren.beans.ChannelBean;
-import Diggaren.Diggaren.beans.SongBean;
 
 public class Run {
 
@@ -33,10 +32,10 @@ public class Run {
 
     }
     
-    public String getSpotifyLink(int channel){
-    	SpotifyBean ssb = spotify.getSpotify();
+	public String getSpotifyLink(int channel) {
+		SpotifyBean ssb = spotify.getSpotify();
 		return ssb.getUrl();
-    }
+	}
 
 
 }

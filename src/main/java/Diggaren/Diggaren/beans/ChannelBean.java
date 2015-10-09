@@ -7,6 +7,13 @@ public class ChannelBean {
 	@SerializedName("id")
 	private int id;
 
+	@SerializedName("name")
+	private String name;
+
+	public ChannelBean() {
+
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -23,11 +30,6 @@ public class ChannelBean {
 		this.name = name;
 	}
 
-	@SerializedName("name")
-	private String name;
 
-	public ChannelBean() {
-
-	}
 	
 }

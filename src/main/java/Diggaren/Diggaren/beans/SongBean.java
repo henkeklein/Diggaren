@@ -1,14 +1,9 @@
 package Diggaren.Diggaren.beans;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-
 import com.google.gson.annotations.SerializedName;
 
 public class SongBean {
 	
-	@SerializedName("id")
-	private int id;
 	
 	@SerializedName("title")
 	public String title;
@@ -138,24 +133,4 @@ public class SongBean {
 	public void setStoptimeutc(String stoptimeutc) {
 		this.stoptimeutc = stoptimeutc;
 	}
-	
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-
 }
