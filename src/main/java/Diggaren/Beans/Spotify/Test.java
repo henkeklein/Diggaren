@@ -23,6 +23,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClients;
 
+import Diggaren.Diggaren.DiggarenTest;
 import Diggaren.Diggaren.beans.SongBean;
 
 import com.google.gson.Gson;
@@ -50,6 +51,7 @@ public class Test {
 	 *            at all.
 	 * @throws UnsupportedEncodingException 
 	 */
+	SpotifyBean spotifyBean;
 	public void startSpotify(SongBean bean) {
 		String title = bean.getTitle();
 			try {
@@ -116,9 +118,11 @@ public class Test {
 		for (int i =0; i < 1; i++){
 			arr.add(itemBean.getLink().getUrl());
 			System.out.println("URL länk: " + arr + "\n");			
-		
 		}
-		
+	}
+	
+	public SpotifyBean getSpotify(SongBean song) {
+		return spotifyBean;
 	}
 	
 }

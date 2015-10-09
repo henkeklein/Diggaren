@@ -48,8 +48,7 @@ public class SpotifyBean {
 
 
 	public String getUrl() {
-		
-		return null;
+		return track.getUri();
 	}
 
 	}
