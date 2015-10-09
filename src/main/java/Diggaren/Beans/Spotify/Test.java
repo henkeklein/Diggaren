@@ -52,8 +52,11 @@ public class Test {
 	 * @throws UnsupportedEncodingException 
 	 */
 	SpotifyBean spotifyBean;
-	public void startSpotify(SongBean bean) {
-		String title = bean.getTitle();
+	public void startSpotify(String bean) {
+
+		String title = bean;
+		
+	
 			try {
 				title = URLEncoder.encode(title,"UTF-8");
 			} catch (UnsupportedEncodingException e) {
@@ -121,7 +124,7 @@ public class Test {
 		}
 	}
 	
-	public SpotifyBean getSpotify(SongBean song) {
+	public SpotifyBean getSpotify() {
 		return spotifyBean;
 	}
 	

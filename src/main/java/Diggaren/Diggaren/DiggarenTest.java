@@ -23,6 +23,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import Diggaren.Diggaren.beans.ChannelBean;
+import Diggaren.Diggaren.beans.NextSongBean;
 import Diggaren.Diggaren.beans.SRBean;
 import Diggaren.Diggaren.beans.SongBean;
 
@@ -33,14 +34,16 @@ import Diggaren.Diggaren.beans.SongBean;
  * @author
  */
 public class DiggarenTest {
+	String string;
 	SongBean bean;
+	static String hejsan;
 	/**
 	 * The main method that's used to run the program.
 	 * 
 	 * @param args Arguments from the command line. This program won't honor
 	 * 		  them at all.
 	 */
-	public void startRadio(ChannelBean channel) {
+	public void startRadio(int channel) {
 		String baseUrl = "http://api.sr.se/api/v2/playlists/rightnow?channelid="+ channel+ "&format=json";
 		
 		HttpClient httpclient = null;
@@ -79,9 +82,17 @@ public class DiggarenTest {
 					// Yep, that went well. Let's print today's information.
 					// As the API will return a list of days, we'll need to
 					// fetch "today", which will be the first and only object.
-					for (Entry<String, SongBean> song : envelope.playlist.entrySet()) {
-						printSong(song.getValue());	
+//					for (Entry<String, SongBean> song : envelope.playlist.entrySet()) {
+//						System.out.println(song.getKey());
+//						printSong(song.getValue());	
+//					}
+					
+					for (int i = 0; i < 1; i++){
+						printSong(envelope.bean);
+						printNextSong(envelope.bean2);
 					}
+											
+//					
 				} catch (Exception e) {
 					// Something didn't went well. No calls for us.
 					e.printStackTrace();
@@ -96,29 +107,40 @@ public class DiggarenTest {
 			e.printStackTrace();
 		}
 		
-		reader = new InputStreamReader(data);
-		json = builder.create();
-		envelope = json.fromJson(reader, SRBean.class);
-		
 		// Yep, that went well. Let's print today's information.
 		// As the API will return a list of days, we'll need to
 		// fetch "today", which will be the first and only object.
 		
 	}
 
+
+
 	/**
 	 * Prints info about today. This method makes no effort trying to be of
 	 * great coding standard. In fact, it looks like crap, but works well
 	 * enough for this example.
 	 * 
-	 * @param bean The bean containing all information about today.
+	 * @param songBean The bean containing all information about today.
 	 */
-	public static void printSong(SongBean bean) {
-		System.out.println("Låten heter: " + bean.getTitle() + "\n");
+	public static void printSong(SongBean songBean) {
+		System.out.println("Låten heter: " + songBean.getTitle() + "\n");
+	
+		hejsan = songBean.getTitle();
+	
 	}
 	
-	public SongBean getSong(){
-		return bean;
-		
+	public static void printNextSong(NextSongBean songBean) {
+		System.out.println("Låten heter: " + songBean.getTitle() + "\n");
+	
+		hejsan = songBean.getTitle();
+	
 	}
+	
+	
+	
+	public String getTitle() {
+		return hejsan;
+	}
+
+	
 }

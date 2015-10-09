@@ -11,10 +11,11 @@ public class Run {
 
 	private DiggarenTest sr;
 	private Test spotify;
+
     public static void main( String[] args )
     {
     	Run app = new Run();
-    	
+    	app.getSpotifyLink(2576);
     	get("/kanaler", (req, res) -> {
     		return app.getSpotifyLink(2576);
     	});
@@ -26,13 +27,16 @@ public class Run {
     public Run (){
     	sr = new DiggarenTest();
     	spotify = new Test();
-    	sr.startRadio(new ChannelBean());
-    	spotify.startSpotify(sr.getSong());
+    	
+    	sr.startRadio(2576);
+    	//spotify.startSpotify(sr.getTitle());
+
     }
     
     public String getSpotifyLink(int channel){
-    	SongBean song = sr.getSong();
-    	SpotifyBean ssb = spotify.getSpotify(song);
+    	
+
+    	SpotifyBean ssb = spotify.getSpotify();
 		return ssb.getUrl();
     }
 

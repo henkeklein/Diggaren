@@ -10,11 +10,15 @@ import com.google.gson.annotations.SerializedName;
 
 public class SRBean {
 
-	@SerializedName("playlist")
-	public Map<String, SongBean> playlist = new TreeMap<String, SongBean>();
+	@SerializedName("song")
+//	public Map<String, SongBean> playlist = new TreeMap<String, SongBean>();
+	public SongBean bean = new SongBean();
 
-	@SerializedName("channel")
-	private ChannelBean beanInfo;
+	@SerializedName("nextsong")
+	public NextSongBean bean2 = new NextSongBean(); 
+	
+//	@SerializedName("channel")
+//	private ChannelBean beanInfo;
 
 	/**
 	 * Being a bean, the class needs an empty, public constructor.
@@ -25,29 +29,18 @@ public class SRBean {
 
 
 
-	public ChannelBean getBeanInfo() {
-		return beanInfo;
-	}
+//	public ChannelBean getBeanInfo() {
+//		return beanInfo;
+//	}
 
 
 
-	public void setBeanInfo(ChannelBean beanInfo) {
-		this.beanInfo = beanInfo;
-	}
+//	public void setBeanInfo(ChannelBean beanInfo) {
+//		this.beanInfo = beanInfo;
+//	}
 
-	public Map<String, SongBean> getPlaylist() {
-		return playlist;
+	public SongBean getPlaylist() {
+		return bean;
 	}
 	
-	public List<ChannelBean> getAll (){
-		List <ChannelBean> bean = new ArrayList<ChannelBean>();
-		Iterator<ChannelBean> iter = bean.iterator();
-		while (iter.hasNext()){
-			ChannelBean b = new ChannelBean();
-			b.getId();
-			b.getName();
-		}
-		return bean;
-		
-	}
 }
