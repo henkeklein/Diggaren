@@ -93,7 +93,7 @@ public class Test {
 					envelope = json.fromJson(reader, SpotifyBean.class);
 				
 					for (int i = 0; i < 1; i++){
-						printUrl(envelope.artists.items.get(i));						
+						printUrl(envelope.track.items.get(i));						
 					}
 					
 
