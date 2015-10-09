@@ -29,13 +29,11 @@ public class Run {
     	spotify = new Test();
     	
     	sr.startRadio(2576);
-    	//spotify.startSpotify(sr.getTitle());
+    	spotify.startSpotify(sr.getTitle());
 
     }
     
     public String getSpotifyLink(int channel){
-    	
-
     	SpotifyBean ssb = spotify.getSpotify();
 		return ssb.getUrl();
     }

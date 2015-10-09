@@ -53,6 +53,7 @@ public class ArtistBean {
 	}
 	
 	public String getUri() {
+		System.out.println(uri + "Hej");
 		return uri;
 	}
 

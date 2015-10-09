@@ -6,6 +6,10 @@ import java.net.URLEncoder;
 import com.google.gson.annotations.SerializedName;
 
 public class SongBean {
+	
+	@SerializedName("id")
+	private int id;
+	
 	@SerializedName("title")
 	public String title;
 
@@ -38,9 +42,6 @@ public class SongBean {
 
 	@SerializedName("stoptimeutc")
 	private String stoptimeutc;
-	
-	@SerializedName("id")
-	private int id;
 	
 	@SerializedName("name")
 	private String name;

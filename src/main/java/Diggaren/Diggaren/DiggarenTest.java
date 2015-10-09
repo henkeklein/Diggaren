@@ -82,15 +82,16 @@ public class DiggarenTest {
 					// Yep, that went well. Let's print today's information.
 					// As the API will return a list of days, we'll need to
 					// fetch "today", which will be the first and only object.
-//					for (Entry<String, SongBean> song : envelope.playlist.entrySet()) {
-//						System.out.println(song.getKey());
-//						printSong(song.getValue());	
-//					}
-					
-					for (int i = 0; i < 1; i++){
-						printSong(envelope.bean);
-						printNextSong(envelope.bean2);
+
+					for (Entry<String, SongBean> song : envelope.playlist.entrySet()) {
+						printSong(song.getValue());	
+						
 					}
+					
+//					for (int i = 0; i < 1; i++){
+//						printSong(envelope.bean);
+//						printNextSong(envelope.bean2);
+//					}
 											
 //					
 				} catch (Exception e) {
@@ -124,18 +125,10 @@ public class DiggarenTest {
 	 */
 	public static void printSong(SongBean songBean) {
 		System.out.println("Låten heter: " + songBean.getTitle() + "\n");
-	
 		hejsan = songBean.getTitle();
 	
 	}
-	
-	public static void printNextSong(NextSongBean songBean) {
-		System.out.println("Låten heter: " + songBean.getTitle() + "\n");
-	
-		hejsan = songBean.getTitle();
-	
-	}
-	
+
 	
 	
 	public String getTitle() {

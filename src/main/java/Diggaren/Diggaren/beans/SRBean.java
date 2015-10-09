@@ -10,14 +10,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class SRBean {
 
-	@SerializedName("song")
+//	@SerializedName("playlist")
 //	public Map<String, SongBean> playlist = new TreeMap<String, SongBean>();
-	public SongBean bean = new SongBean();
+//	public SongBean bean = new SongBean();
 
-	@SerializedName("nextsong")
-	public NextSongBean bean2 = new NextSongBean(); 
+//	@SerializedName("nextsong")
+//	public NextSongBean bean2 = new NextSongBean(); 
 	
-//	@SerializedName("channel")
+	
+	@SerializedName("playlist")
+	public Map<String, SongBean> playlist = new TreeMap<String, SongBean>();
 //	private ChannelBean beanInfo;
 
 	/**
@@ -29,18 +31,13 @@ public class SRBean {
 
 
 
-//	public ChannelBean getBeanInfo() {
-//		return beanInfo;
-//	}
+	public Map<String, SongBean> getBeanInfo() {
+		return playlist;
+	}
 
 
-
-//	public void setBeanInfo(ChannelBean beanInfo) {
-//		this.beanInfo = beanInfo;
-//	}
-
-	public SongBean getPlaylist() {
-		return bean;
+	public Map<String, SongBean> getPlaylist() {
+		return playlist;
 	}
 	
 }

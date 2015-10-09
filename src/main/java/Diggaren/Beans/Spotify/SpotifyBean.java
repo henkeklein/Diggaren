@@ -13,9 +13,9 @@ public class SpotifyBean {
 	
 
 	@SerializedName("tracks")
+	public ArtistBean track = new ArtistBean();
 //	public List<ArtistBean> artists = new ArrayList<ArtistBean>();
 //	public Map<String, ArtistBean> artists = new TreeMap<String, ArtistBean>();
-	public ArtistBean track = new ArtistBean();
 
 	
 	// @SerializedName("track")
