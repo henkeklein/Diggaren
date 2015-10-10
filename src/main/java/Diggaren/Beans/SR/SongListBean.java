@@ -11,7 +11,7 @@ import com.google.gson.annotations.SerializedName;
  */
 public class SongListBean {
 	
-	@SerializedName("song") 
+	@SerializedName("title") 
 	private String title;
 	
 	@SerializedName("description")
@@ -19,6 +19,7 @@ public class SongListBean {
 	
 	@SerializedName("artist")
 	private String artist;
+	
 	
 	public SongListBean() {}
 
