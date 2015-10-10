@@ -30,7 +30,9 @@ import Diggaren.Beans.SR.SongListBean;
  */
 public class DiggarenTest {
 	private static String firstSong;
-
+	
+	//This string will represent every sons that have been played
+	private static String songsPlayed;
 
 	public void startRadio(int channel) {
 
@@ -107,24 +109,31 @@ public class DiggarenTest {
 
 		firstSong = song.getArtist() + "  -  " + song.getTitle() + "  -  ";
 	}
+
 	
+	public String getFirstSong() {
+		return firstSong;
+	}
+	
+//-----------------------------------Separates the list functions from the "first song" function----------------------------------	
 	/*
 	 * Prints every song played on 9/10-15
 	 */
 	public static void printSongList(SongListBean bean) {
 		System.out.println("Artist: " + bean.getArtist());
 		System.out.println("Song: " + bean.getTitle());
+		songsPlayed = bean.getTitle();
 		System.out.println("---------------------------");
 	}
 	
-	public String getFirstSong() {
-		return firstSong;
+	public String getSongsPlayed() {
+		return songsPlayed;
 	}
 	
 	/*
-	 * Created a main method for the print
+	 * Method to get all songs 9/10-15
 	 */
-	public static void main(String[] args) {
+	public void createAndGetList() {
 		String baseUrl = "http://api.sr.se/api/v2/playlists/getplaylistbyprogramid?id=2576&startdatetime=2015-10-09&format=json";
 
 		HttpClient httpclient = null;
@@ -164,6 +173,7 @@ public class DiggarenTest {
 					for (int i = 0; i < envelope.list.size(); i++) {
 						printSongList(envelope.list.get(i));
 					}
+					System.out.println("Songs played this day: " + envelope.list.size());
 
 				} catch (Exception e) {
 					// Something didn't went well. No calls for us.
@@ -178,7 +188,4 @@ public class DiggarenTest {
 			e.printStackTrace();
 		}
 	}
-
-
-
 }
