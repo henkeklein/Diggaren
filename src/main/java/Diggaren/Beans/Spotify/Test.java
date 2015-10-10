@@ -1,13 +1,11 @@
 package Diggaren.Beans.Spotify;
 
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.ArrayList;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -19,27 +17,25 @@ import org.apache.http.impl.client.HttpClients;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-
-
-
-
 public class Test {
 	SpotifyBean spotifyBean;
+	ArtistBean artistBean;
 	ItemBean itemBean;
+	static String link;
+	static String id;
 
 	public void startSpotify(String bean) {
 
 		String title = bean;
-		
-	
-			try {
-				title = URLEncoder.encode(title,"UTF-8");
-			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
-			}
 
-		String baseUrl = "https://api.spotify.com/v1/search?type=track&limit=50&q=%27track:"+ title;
-	
+		try {
+			title = URLEncoder.encode(title, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+
+		String baseUrl = "https://api.spotify.com/v1/search?type=track&limit=50&q=%27track:" + title;
+
 		HttpClient httpclient = null;
 		HttpGet httpGet = null;
 		HttpResponse response = null;
@@ -71,12 +67,13 @@ public class Test {
 					reader = new InputStreamReader(data);
 					json = builder.create();
 					envelope = json.fromJson(reader, SpotifyBean.class);
-				
-					for (int i = 0; i < 1; i++){
-						printUrl(envelope.track.items.get(i));						
-					}
-					
 
+					for (int i = 0; i < envelope.track.items.size(); i++) {
+						if (i == 1) {
+							printUrl(envelope.track.items.get(i));
+
+						}
+					}
 				} catch (Exception e) {
 					// Something didn't went well. No calls for us.
 					e.printStackTrace();
@@ -91,21 +88,22 @@ public class Test {
 			e.printStackTrace();
 		}
 	}
+
 	private static void printUrl(ItemBean itemBean) {
-		ArrayList<String> arr = new ArrayList<String>();
-		for (int i =0; i < 1; i++){
-			arr.add(itemBean.getLink().getUrl());
-			System.out.println("URL länk: " + arr + "\n");	
-			
-			
-		}
+		link = itemBean.getLink().getUrl();
+		System.out.println("\n" + "URL länk: " + link);
+		System.out.println("\n" + "-------------------------------");
+		
 	}
-	
-	public SpotifyBean getSpotify() {
-		return spotifyBean;
+
+	public String getLink() {
+		return link;
 
 	}
-	
+
+	public String getID() {
+		return id;
+
+	}
+
 }
-
-

@@ -2,7 +2,6 @@ package StartPackage;
 
 import static spark.Spark.get;
 
-import Diggaren.Beans.Spotify.SpotifyBean;
 import Diggaren.Beans.Spotify.Test;
 import Diggaren.Diggaren.DiggarenTest;
 
@@ -14,27 +13,30 @@ public class Run {
     public static void main( String[] args )
     {
     	Run app = new Run();
-    	app.getSpotifyLink(2576);
-    	get("/kanaler", (req, res) -> {
-    		return app.getSpotifyLink(2576);
+		app.getSpotifyLinkFirst(2576);
+
+		get("/song", (req, res) -> {
+			return app.getSpotifyLinkFirst(2576);
     	});
         System.out.println( "Hello World!" );
         get("/hej", (req, res) -> "Hej");
-        
+
+
     }
     
     public Run (){
     	sr = new DiggarenTest();
-    	spotify = new Test();
-    	
-    	sr.startRadio(2576);
-    	spotify.startSpotify(sr.getTitle());
+		spotify = new Test();
+
+
 
     }
     
-	public String getSpotifyLink(int channel) {
-		SpotifyBean ssb = spotify.getSpotify();
-		return ssb.getUrl();
+	public String getSpotifyLinkFirst(int channel) {
+		sr.startRadio(channel);
+		spotify.startSpotify(sr.getFirstSong());
+		return sr.getFirstSong() + spotify.getLink();
+
 	}
 
 

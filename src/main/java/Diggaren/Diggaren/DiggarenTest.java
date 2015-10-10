@@ -1,4 +1,5 @@
 package Diggaren.Diggaren;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -26,15 +27,13 @@ import Diggaren.Diggaren.beans.SongBean;
  * @author
  */
 public class DiggarenTest {
-	private static String title;
-	
-	public void startRadio(int channel) {
-	String string;
-	SongBean bean;
-		String hejsan;
+	private static String firstSong;
 
-		String baseUrl = "http://api.sr.se/api/v2/playlists/rightnow?channelid=2576&format=json";
-		
+
+	public void startRadio(int channel) {
+
+		String baseUrl = "http://api.sr.se/api/v2/playlists/rightnow?channelid=" + channel + "&format=json";
+
 		HttpClient httpclient = null;
 		HttpGet httpGet = null;
 		HttpResponse response = null;
@@ -42,10 +41,9 @@ public class DiggarenTest {
 		HttpEntity entity = null;
 		InputStream data = null;
 		Reader reader = null;
-		
+
 		GsonBuilder builder = new GsonBuilder();
 		Gson json = builder.create();
-		
 
 		Envelope envelope = null;
 		Playlist playlist = null;
@@ -54,7 +52,7 @@ public class DiggarenTest {
 			// Create the client that will call the API
 			httpclient = HttpClients.createDefault();
 			httpGet = new HttpGet(baseUrl);
-			
+
 			// Call the API and verify that all went well
 			response = httpclient.execute(httpGet);
 			status = response.getStatusLine();
@@ -62,21 +60,19 @@ public class DiggarenTest {
 				// All went well. Let's fetch the data
 				entity = response.getEntity();
 				data = entity.getContent();
-				
+
 				try {
 					// Attempt to parse the data as JSON
 					reader = new InputStreamReader(data);
 					envelope = json.fromJson(reader, Envelope.class);
 					playlist = envelope.getPlaylist();
-					
+
 					// Print the info
 					printChannel(playlist.getChannel());
 					if (playlist.getSong() != null) {
-					printSong(playlist.getSong());
+						printSong(playlist.getSong());
 					}
-					if (playlist.getNextSong() != null) {
-						printSong(playlist.getNextSong());
-					}
+
 				} catch (Exception e) {
 					// Something didn't went well. No calls for us.
 					e.printStackTrace();
@@ -90,22 +86,29 @@ public class DiggarenTest {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void printChannel(ChannelBean channel) {
+		System.out.println("CHANNEL:");
 		System.out.println("Channel name: " + channel.getName());
 		System.out.println("Channel id: " + channel.getId());
+
 	}
-	
+
 	public static void printSong(SongBean song) {
+		System.out.println("\n" + "-------------------------------");
+		System.out.println("SONG:");
 		System.out.println("Artist: " + song.getArtist());
 		System.out.println("Title: " + song.getTitle());
-		title = song.getTitle();
 		System.out.println("Description: " + song.getDescription());
+		System.out.println("\n" + "-------------------------------");
+
+		firstSong = song.getArtist() + "  -  " + song.getTitle() + "  -  ";
 	}
-	
-	public static String getTitle() {
-		return title;
+
+	public String getFirstSong() {
+		return firstSong;
 	}
+
 
 
 }
