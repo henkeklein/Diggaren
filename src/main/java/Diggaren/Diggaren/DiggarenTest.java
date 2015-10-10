@@ -15,10 +15,10 @@ import org.apache.http.impl.client.HttpClients;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import Diggaren.Diggaren.beans.ChannelBean;
-import Diggaren.Diggaren.beans.Envelope;
-import Diggaren.Diggaren.beans.Playlist;
-import Diggaren.Diggaren.beans.SongBean;
+import Diggaren.Beans.SR.ChannelBean;
+import Diggaren.Beans.SR.Envelope;
+import Diggaren.Beans.SR.Playlist;
+import Diggaren.Beans.SR.SongBean;
 
 /**
  * A small program that retrieves information about today from an external API

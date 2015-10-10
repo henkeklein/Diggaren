@@ -1,4 +1,4 @@
-package Diggaren.Diggaren.beans;
+package Diggaren.Beans.SR;
 
 import com.google.gson.annotations.SerializedName;
 
