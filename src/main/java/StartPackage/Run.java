@@ -2,6 +2,9 @@ package StartPackage;
 
 import static spark.Spark.get;
 
+import java.util.ArrayList;
+
+import Diggaren.Beans.SR.SongListBean;
 import Diggaren.Beans.Spotify.Test;
 import Diggaren.Diggaren.DiggarenTest;
 
@@ -20,7 +23,11 @@ public class Run {
     	});
         System.out.println( "Hello World!" );
         get("/hej", (req, res) -> "Hej");
-
+        
+        get("/list", (req,res) -> {
+        	return app.getList();
+        });
+        
 
     }
     
@@ -37,6 +44,22 @@ public class Run {
 		spotify.startSpotify(sr.getFirstSong());
 		return sr.getFirstSong() + spotify.getLink();
 
+	}
+	
+	public String getList() {
+		
+		ArrayList<SongListBean> list = sr.createAndGetList();
+		String s = "";
+		
+		for (int i = 0; i < list.size(); i++) {
+			spotify.startSpotify(list.get(i).getTitle());
+			s += i + ": " + list.get(i).getTitle() + " - URL: " + spotify.getLink();
+		}
+		
+		return s;
+		
+		
+		
 	}
 
 

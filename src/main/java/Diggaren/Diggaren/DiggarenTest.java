@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.HttpEntity;
@@ -133,7 +134,7 @@ public class DiggarenTest {
 	/*
 	 * Method to get all songs 9/10-15
 	 */
-	public void createAndGetList() {
+	public ArrayList<SongListBean> createAndGetList() {
 		String baseUrl = "http://api.sr.se/api/v2/playlists/getplaylistbyprogramid?id=2576&startdatetime=2015-10-09&format=json";
 
 		HttpClient httpclient = null;
@@ -170,10 +171,12 @@ public class DiggarenTest {
 					playlist = envelope.getPlaylist();
 
 					// Print the info
-					for (int i = 0; i < envelope.list.size(); i++) {
-						printSongList(envelope.list.get(i));
-					}
-					System.out.println("Songs played this day: " + envelope.list.size());
+//					for (int i = 0; i < envelope.list.size(); i++) {
+//						//printSongList(envelope.list.get(i));
+//						return envelope.list;
+//					}
+					return envelope.list;
+		//			System.out.println("Songs played this day: " + envelope.list.size());
 
 				} catch (Exception e) {
 					// Something didn't went well. No calls for us.
@@ -187,5 +190,6 @@ public class DiggarenTest {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return null;
 	}
 }
