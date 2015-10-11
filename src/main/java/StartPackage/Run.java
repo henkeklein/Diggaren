@@ -25,7 +25,7 @@ public class Run {
         get("/hej", (req, res) -> "Hej");
         
         get("/list", (req,res) -> {
-        	return app.getList();
+        	return "<p>"+app.getList()+"</p";
         });
         
 
@@ -53,7 +53,7 @@ public class Run {
 		
 		for (int i = 0; i < list.size(); i++) {
 			spotify.startSpotify(list.get(i).getTitle());
-			s += i + ": " + list.get(i).getTitle() + " - URL: " + spotify.getLink();
+			s += "<p>" + i + ": " + list.get(i).getTitle() + " - URL: " + spotify.getLink() + "</p>";
 		}
 		
 		return s;
