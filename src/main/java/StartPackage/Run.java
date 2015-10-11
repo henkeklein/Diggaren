@@ -54,15 +54,15 @@ public class Run {
 		
 		ArrayList<SongListBean> list = sr.createAndGetList();
 		String s = "";
+		int nbr = 0;
 		
 		/*
 		 * Here is were the magic happens :)
 		 */
-		for (int i = 0; i < list.size(); i++) {
-			SongListBean bean = list.get(i);
-			spotify.startSpotify(list.get(i).getTitle());
+		for (SongListBean bean : list) {
+			spotify.startSpotify(bean.getTitle());
 			String link = spotify.getLink();
-			int nbr = i+1;
+			nbr++;
 			s += "<p>" + nbr + ": " + bean.getDescribtion() + " - URL: " + "<a href="+"\""+link+"\"" + ">"+link+"</a>" + "</p>";
 		}
 		
