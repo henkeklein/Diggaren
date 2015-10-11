@@ -17,7 +17,7 @@ import org.apache.http.impl.client.HttpClients;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class Test {
+public class SpotifyStarter {
 	SpotifyBean spotifyBean;
 	ArtistBean artistBean;
 	ItemBean itemBean;

@@ -5,13 +5,19 @@ import static spark.Spark.get;
 import java.util.ArrayList;
 
 import Diggaren.Beans.SR.SongListBean;
-import Diggaren.Beans.Spotify.Test;
-import Diggaren.Diggaren.DiggarenTest;
+import Diggaren.Beans.Spotify.SpotifyStarter;
+import Diggaren.Diggaren.SRStarter;
 
+/**
+ * Initiates our server
+ * 
+ * @author danielhertzman-ericson, Henrik Klein, Dennis Kristensson
+ *
+ */
 public class Run {
 
-	private DiggarenTest sr;
-	private Test spotify;
+	private SRStarter sr;
+	private SpotifyStarter spotify;
 
     public static void main( String[] args )
     {
@@ -32,10 +38,8 @@ public class Run {
     }
     
     public Run (){
-    	sr = new DiggarenTest();
-		spotify = new Test();
-
-
+    	sr = new SRStarter();
+		spotify = new SpotifyStarter();
 
     }
     
@@ -51,17 +55,17 @@ public class Run {
 		ArrayList<SongListBean> list = sr.createAndGetList();
 		String s = "";
 		
+		/*
+		 * Here is were the magic happens :)
+		 */
 		for (int i = 0; i < list.size(); i++) {
 			spotify.startSpotify(list.get(i).getTitle());
 			String link = spotify.getLink();
-			s += "<p>" + i + ": " + list.get(i).getTitle() + " - URL: " + "<a href="+"\""+link+"\"" + ">"+link+"</a>" + "</p>";
+			s += "<p>" + i+1 + ": " + list.get(i).getTitle() + " - URL: " + "<a href="+"\""+link+"\"" + ">"+link+"</a>" + "</p>";
 		}
 		
 		return s;
-		
-		
-		
+	
 	}
-
 
 }

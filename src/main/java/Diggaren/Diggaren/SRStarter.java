@@ -5,18 +5,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClients;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import Diggaren.Beans.SR.ChannelBean;
 import Diggaren.Beans.SR.Envelope;
 import Diggaren.Beans.SR.Playlist;
@@ -24,12 +20,11 @@ import Diggaren.Beans.SR.SongBean;
 import Diggaren.Beans.SR.SongListBean;
 
 /**
- * A small program that retrieves information about today from an external API
- * and presents this info in a more readable way as a console print out.
+ * Initiates the API from Sveriges Radio (SR)
  * 
- * @author
+ * @author Henrik Klein, Dennis Kristensson, Daniel H-E
  */
-public class DiggarenTest {
+public class SRStarter {
 	private static String firstSong;
 	
 	//This string will represent every sons that have been played
@@ -127,12 +122,16 @@ public class DiggarenTest {
 		System.out.println("---------------------------");
 	}
 	
+	/*
+	 * Is not being used anymore
+	 */
 	public String getSongsPlayed() {
 		return songsPlayed;
 	}
 	
 	/*
-	 * Method to get all songs 9/10-15
+	 * Method to get all songs 9/10-15.
+	 * Might change the parameter to receive a start time and a stop time.
 	 */
 	public ArrayList<SongListBean> createAndGetList() {
 		String baseUrl = "http://api.sr.se/api/v2/playlists/getplaylistbyprogramid?id=2576&startdatetime=2015-10-09&format=json";
@@ -149,7 +148,6 @@ public class DiggarenTest {
 		Gson json = builder.create();
 
 		Envelope envelope = null;
-		Playlist playlist = null;
 
 		try {
 			// Create the client that will call the API
@@ -168,13 +166,14 @@ public class DiggarenTest {
 					// Attempt to parse the data as JSON
 					reader = new InputStreamReader(data);
 					envelope = json.fromJson(reader, Envelope.class);
-					playlist = envelope.getPlaylist();
 
 					// Print the info
 //					for (int i = 0; i < envelope.list.size(); i++) {
 //						//printSongList(envelope.list.get(i));
 //						return envelope.list;
 //					}
+					
+					// Simply returns list
 					return envelope.list;
 		//			System.out.println("Songs played this day: " + envelope.list.size());
 
