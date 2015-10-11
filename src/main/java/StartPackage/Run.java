@@ -53,7 +53,8 @@ public class Run {
 		
 		for (int i = 0; i < list.size(); i++) {
 			spotify.startSpotify(list.get(i).getTitle());
-			s += "<p>" + i + ": " + list.get(i).getTitle() + " - URL: " + spotify.getLink() + "</p>";
+			String link = spotify.getLink();
+			s += "<p>" + i + ": " + list.get(i).getTitle() + " - URL: " + "<a href="+"\""+link+"\"" + ">"+link+"</a>" + "</p>";
 		}
 		
 		return s;
