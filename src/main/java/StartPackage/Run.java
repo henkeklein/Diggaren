@@ -22,7 +22,7 @@ public class Run {
     public static void main( String[] args )
     {
     	Run app = new Run();
-		app.getSpotifyLinkFirst(2576);
+	//	app.getSpotifyLinkFirst(2576);
 
 		get("/song", (req, res) -> {
 			return app.getSpotifyLinkFirst(2576);
@@ -61,7 +61,8 @@ public class Run {
 		for (int i = 0; i < list.size(); i++) {
 			spotify.startSpotify(list.get(i).getTitle());
 			String link = spotify.getLink();
-			s += "<p>" + i+1 + ": " + list.get(i).getTitle() + " - URL: " + "<a href="+"\""+link+"\"" + ">"+link+"</a>" + "</p>";
+			int nbr = i+1;
+			s += "<p>" + nbr + ": " + list.get(i).getTitle() + " - URL: " + "<a href="+"\""+link+"\"" + ">"+link+"</a>" + "</p>";
 		}
 		
 		return s;
