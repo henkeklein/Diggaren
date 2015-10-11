@@ -4,9 +4,9 @@ import static spark.Spark.get;
 
 import java.util.ArrayList;
 
+import Diggaren.Beans.SR.SRStarter;
 import Diggaren.Beans.SR.SongListBean;
 import Diggaren.Beans.Spotify.SpotifyStarter;
-import Diggaren.Diggaren.SRStarter;
 
 /**
  * Initiates our server
@@ -59,10 +59,11 @@ public class Run {
 		 * Here is were the magic happens :)
 		 */
 		for (int i = 0; i < list.size(); i++) {
+			SongListBean bean = list.get(i);
 			spotify.startSpotify(list.get(i).getTitle());
 			String link = spotify.getLink();
 			int nbr = i+1;
-			s += "<p>" + nbr + ": " + list.get(i).getTitle() + " - URL: " + "<a href="+"\""+link+"\"" + ">"+link+"</a>" + "</p>";
+			s += "<p>" + nbr + ": " + bean.getDescribtion() + " - URL: " + "<a href="+"\""+link+"\"" + ">"+link+"</a>" + "</p>";
 		}
 		
 		return s;

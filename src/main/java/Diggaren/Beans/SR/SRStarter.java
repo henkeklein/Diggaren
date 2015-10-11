@@ -1,4 +1,4 @@
-package Diggaren.Diggaren;
+package Diggaren.Beans.SR;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,11 +13,6 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClients;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import Diggaren.Beans.SR.ChannelBean;
-import Diggaren.Beans.SR.Envelope;
-import Diggaren.Beans.SR.Playlist;
-import Diggaren.Beans.SR.SongBean;
-import Diggaren.Beans.SR.SongListBean;
 
 /**
  * Initiates the API from Sveriges Radio (SR)
