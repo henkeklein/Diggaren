@@ -25,7 +25,7 @@ public class Run {
         get("/hej", (req, res) -> "Hej");
         
         get("/list", (req,res) -> {
-        	return "<p>"+app.getList()+"</p";
+        	return app.getList();
         });
         
 
