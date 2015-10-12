@@ -24,12 +24,42 @@ public class Run {
     	Run app = new Run();
 	//	app.getSpotifyLinkFirst(2576);
 
-		get("/song", (req, res) -> {
-			return app.getSpotifyLinkFirst(2576);
-    	});
-        System.out.println( "Hello World!" );
-        get("/hej", (req, res) -> "Hej");
-        
+		String createLink = app.getSpotifyLinkFirst(2576);
+
+		get("/song", (req, res) -> 
+//			return app.getSpotifyLinkFirst(2576);
+			"<!DOCTYPE html>"+
+			"<html>"+
+
+			"<head>"+
+			"<title>Spotify</title>"+
+//				"<meta http-equiv="+content-type+" content="+text/html+;charset=utf-8+" />"+
+//				"<meta name="+generator+" content="+Geany 0.19.1+" />"+
+			"</head>"+
+			"<body>"+
+				"<header>"+
+					"<h1>"+
+ app.getSpotifyLinkFirst(2576) +
+					"</h1>"+
+				"</header>"+
+				"<section>"+
+					"<heading></heading>"+
+ "<a href=" + "\"" + createLink + "\"" + ">" + "uhgu" + "</a>" +
+
+				// "<a href=" + app.getSpotifyLinkFirst(2576) + ">Link</a>" +
+			                
+					"</nav>"+
+					"</section>	"+   	
+			"<footer>"+
+		
+			    "</footer>"+
+			"</body>"+
+			"</html>"
+			)
+			;
+    	
+
+    
         get("/list", (req,res) -> {
         	return app.getList();
         });
