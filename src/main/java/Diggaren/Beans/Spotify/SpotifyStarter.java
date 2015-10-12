@@ -22,7 +22,7 @@ public class SpotifyStarter {
 	SpotifyBean spotifyBean;
 	ArtistBean artistBean;
 	ItemBean itemBean;
-	String link;
+	static String link;
 	static String id;
 
 	public void startSpotify(String bean) {
@@ -70,14 +70,14 @@ public class SpotifyStarter {
 					json = builder.create();
 					envelope = json.fromJson(reader, SpotifyBean.class);
 
-//					for (int i = 0; i < envelope.track.items.size(); i++) {
-//						if (i == 1) {
-//							printUrl(envelope.track.items.get(i));
-//
-//						}
-//					}
+					for (int i = 0; i < envelope.track.items.size(); i++) {
+						if (i == 1) {
+							printUrl(envelope.track.items.get(i));
+
+						}
+					}
 					
-					link = envelope.track.items.get(1).getLink().getUrl();
+//					link = envelope.track.items.get(1).getLink().getUrl();
 					
 				} catch (Exception e) {
 					// Something didn't went well. No calls for us.
@@ -94,12 +94,12 @@ public class SpotifyStarter {
 		}
 	}
 
-//	private static void printUrl(ItemBean itemBean) {
-//		link = itemBean.getLink().getUrl();
-//		System.out.println("\n" + "URL länk: " + link);
-//		System.out.println("\n" + "-------------------------------");
-//		
-//	}
+	private static void printUrl(ItemBean itemBean) {
+		link = itemBean.getLink().getUrl();
+		System.out.println("\n" + "URL länk: " + link);
+		System.out.println("\n" + "-------------------------------");
+		
+	}
 
 	public String getLink() {
 		System.out.println(link);

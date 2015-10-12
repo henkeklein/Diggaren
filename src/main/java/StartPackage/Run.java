@@ -18,35 +18,31 @@ public class Run {
 
 	private SRStarter sr;
 	private SpotifyStarter spotify;
-
+	
     public static void main( String[] args )
     {
     	Run app = new Run();
-	//	app.getSpotifyLinkFirst(2576);
 
-		String createLink = app.getSpotifyLinkFirst(2576);
+		String createLinkDingata = app.getSpotifyLinkFirst(2576);
+		String createLink163 = app.getSpotifyLinkFirst(1607);
 
-		get("/song", (req, res) -> 
-//			return app.getSpotifyLinkFirst(2576);
+		get("/Dingata", (req, res) -> 
 			"<!DOCTYPE html>"+
 			"<html>"+
 
 			"<head>"+
 			"<title>Spotify</title>"+
-//				"<meta http-equiv="+content-type+" content="+text/html+;charset=utf-8+" />"+
-//				"<meta name="+generator+" content="+Geany 0.19.1+" />"+
 			"</head>"+
 			"<body>"+
 				"<header>"+
 					"<h1>"+
- app.getSpotifyLinkFirst(2576) +
+					app.getSpotifyLinkFirst(2576) +
 					"</h1>"+
 				"</header>"+
 				"<section>"+
 					"<heading></heading>"+
- "<a href=" + "\"" + createLink + "\"" + ">" + "uhgu" + "</a>" +
+ "<a href=" + "\"" + app.getLink() + "\"" + ">" + createLinkDingata + "</a>" +
 
-				// "<a href=" + app.getSpotifyLinkFirst(2576) + ">Link</a>" +
 			                
 					"</nav>"+
 					"</section>	"+   	
@@ -55,9 +51,34 @@ public class Run {
 			    "</footer>"+
 			"</body>"+
 			"</html>"
-			)
-			;
+			);
     	
+		get("/Star", (req, res) -> 
+		"<!DOCTYPE html>"+
+		"<html>"+
+
+		"<head>"+
+		"<title>Spotify</title>"+
+		"</head>"+
+		"<body>"+
+			"<header>"+
+				"<h1>"+
+				app.getSpotifyLinkFirst(1607) +
+				"</h1>"+
+			"</header>"+
+			"<section>"+
+				"<heading></heading>"+
+"<a href=" + "\"" + app.getLink() + "\"" + ">" + createLink163 + "</a>" +
+
+		                
+				"</nav>"+
+				"</section>	"+   	
+		"<footer>"+
+	
+		    "</footer>"+
+		"</body>"+
+		"</html>"
+		);
 
     
         get("/list", (req,res) -> {
@@ -76,8 +97,12 @@ public class Run {
 	public String getSpotifyLinkFirst(int channel) {
 		sr.startRadio(channel);
 		spotify.startSpotify(sr.getFirstSong());
-		return sr.getFirstSong() + spotify.getLink();
+		return sr.getFirstSong();
 
+	}
+	
+	public String getLink() {
+		return spotify.getLink();
 	}
 	
 	public String getList() {
