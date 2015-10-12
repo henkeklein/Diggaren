@@ -41,7 +41,7 @@ public class Run {
 				"</header>"+
 				"<section>"+
 					"<heading></heading>"+
- "<a href=" + "\"" + app.getLink() + "\"" + ">" + createLinkDingata + "</a>" +
+ "<a href=" + "\"" + app.getLink() + "\"" + ">" + "Spotify link" + "</a>" +
 
 			                
 					"</nav>"+
@@ -68,7 +68,7 @@ public class Run {
 			"</header>"+
 			"<section>"+
 				"<heading></heading>"+
-"<a href=" + "\"" + app.getLink() + "\"" + ">" + createLink163 + "</a>" +
+"<a href=" + "\"" + app.getLink() + "\"" + ">" + "Spotify link" + "</a>" +
 
 		                
 				"</nav>"+
