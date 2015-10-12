@@ -23,8 +23,6 @@ public class Run {
     {
     	Run app = new Run();
 
-		String createLinkDingata = app.getSpotifyLinkFirst(2576);
-		String createLink163 = app.getSpotifyLinkFirst(1607);
 
 		get("/Dingata", (req, res) -> 
 			"<!DOCTYPE html>"+
@@ -79,6 +77,41 @@ public class Run {
 		"</body>"+
 		"</html>"
 		);
+		
+		
+		get("/Knatte", (req, res) -> 
+		"<!DOCTYPE html>"+
+		"<html>"+
+
+		"<head>"+
+		"<title>Spotify</title>"+
+		"</head>"+
+		"<body>"+
+			"<header>"+
+				"<h1>"+
+				app.getSpotifyLinkFirst(2755) +
+				"</h1>"+
+			"</header>"+
+			"<section>"+
+				"<heading></heading>"+
+"<a href=" + "\"" + app.getLink() + "\"" + ">" + "Spotify link" + "</a>" +
+
+		                
+				"</nav>"+
+				"</section>	"+   	
+		"<footer>"+
+	
+		    "</footer>"+
+		"</body>"+
+		"</html>"
+		);
+		
+//		get("/channels", (req,res) -> {
+//			
+//			
+//			
+//			
+//		});
 
     
         get("/list", (req,res) -> {

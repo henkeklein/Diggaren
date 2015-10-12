@@ -129,7 +129,7 @@ public class SRStarter {
 	 * Might change the parameter to receive a start time and a stop time.
 	 */
 	public ArrayList<SongListBean> createAndGetList() {
-		String baseUrl = "http://api.sr.se/api/v2/playlists/getplaylistbyprogramid?id=2576&startdatetime=2015-10-12&format=json";
+		String baseUrl = "http://api.sr.se/api/v2/playlists/getplaylistbyprogramid?id=2576&startdatetime=2015-10-09&format=json";
 
 		HttpClient httpclient = null;
 		HttpGet httpGet = null;
