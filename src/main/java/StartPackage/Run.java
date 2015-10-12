@@ -4,6 +4,8 @@ import static spark.Spark.get;
 
 import java.util.ArrayList;
 
+import Diggaren.Beans.SR.ChannelList;
+import Diggaren.Beans.SR.Playlist;
 import Diggaren.Beans.SR.SRStarter;
 import Diggaren.Beans.SR.SongListBean;
 import Diggaren.Beans.Spotify.SpotifyStarter;
@@ -18,6 +20,7 @@ public class Run {
 
 	private SRStarter sr;
 	private SpotifyStarter spotify;
+	private ChannelList list;
 	
     public static void main( String[] args )
     {
@@ -106,12 +109,9 @@ public class Run {
 		"</html>"
 		);
 		
-//		get("/channels", (req,res) -> {
-//			
-//			
-//			
-//			
-//		});
+		get("/channels", (req,res) -> {
+			return app.getChannelList();			
+		});
 
     
         get("/list", (req,res) -> {
@@ -124,6 +124,7 @@ public class Run {
     public Run (){
     	sr = new SRStarter();
 		spotify = new SpotifyStarter();
+		list = new ChannelList();
 
     }
     
@@ -138,6 +139,17 @@ public class Run {
 		return spotify.getLink();
 	}
 	
+	public int getChannelList(){
+		
+		ArrayList<Playlist> list1 = list.getChannelList();
+		int i = 0;
+		
+		for (Playlist pl : list1) {
+			i = pl.getChannel().getId();
+		}
+		
+		return i;
+	}
 	public String getList() {
 		
 		ArrayList<SongListBean> list = sr.createAndGetList();
