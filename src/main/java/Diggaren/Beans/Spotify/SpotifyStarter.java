@@ -35,7 +35,8 @@ public class SpotifyStarter {
 			e.printStackTrace();
 		}
 
-		String baseUrl = "https://api.spotify.com/v1/search?type=track&limit=50&q=%27track:" + title;
+//		String baseUrl = "https://api.spotify.com/v1/search?type=track&limit=50&q=%27track:" + title;
+		String baseUrl = "https://api.spotify.com/v1/search?query="+title+"&offset=0&limit=20&type=track";
 
 		HttpClient httpclient = null;
 		HttpGet httpGet = null;
