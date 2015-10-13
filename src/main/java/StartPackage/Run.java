@@ -4,11 +4,15 @@ import static spark.Spark.get;
 
 import java.util.ArrayList;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import Diggaren.Beans.SR.ChannelList;
 import Diggaren.Beans.SR.Playlist;
 import Diggaren.Beans.SR.SRStarter;
 import Diggaren.Beans.SR.SongListBean;
 import Diggaren.Beans.Spotify.SpotifyStarter;
+import Diggaren.Json.JavaToJson;
 
 /**
  * Initiates our server
@@ -25,7 +29,8 @@ public class Run {
     public static void main( String[] args )
     {
     	Run app = new Run();
-
+    	JavaToJson json = new JavaToJson();
+    	
 
 		get("/Dingata", (req, res) -> 
 			"<!DOCTYPE html>"+
@@ -118,7 +123,12 @@ public class Run {
         	return app.getList();
         });
         
-
+        
+        get("/Dingata/json", (req,res) -> {
+        	res.type("text/json");
+        	return json.getJson();
+        });
+        
     }
     
     public Run (){

@@ -98,7 +98,8 @@ public class SRStarter {
 		System.out.println("Description: " + song.getDescription());
 		System.out.println("\n" + "-------------------------------");
 
-		firstSong = song.getArtist() + "  -  " + song.getTitle() + "  -  ";
+//		firstSong = song.getArtist() + "  -  " + song.getTitle() + "  -  ";
+		firstSong = song.getDescription();
 	}
 
 	
