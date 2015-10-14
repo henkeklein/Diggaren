@@ -12,6 +12,7 @@ public class CreateJson {
 	private String url;
 
 	public void setValues(int channel) {
+		System.out.println(channel);
 		SpotifyStarter spotify = new SpotifyStarter();
 		SRStarter sr = new SRStarter();
 		sr.startRadio(channel);
@@ -20,6 +21,8 @@ public class CreateJson {
 		
 		describtion = sr.getFirstSong();
 		url = spotify.getLink();
+		
+		System.out.println(describtion + url);
 	}
 	
 

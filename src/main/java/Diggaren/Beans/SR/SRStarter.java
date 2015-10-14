@@ -20,7 +20,7 @@ import com.google.gson.GsonBuilder;
  * @author Henrik Klein, Dennis Kristensson, Daniel H-E
  */
 public class SRStarter {
-	private static String firstSong;
+	private String firstSong;
 	
 	//This string will represent every sons that have been played
 	private static String songsPlayed;
@@ -90,7 +90,7 @@ public class SRStarter {
 
 	}
 
-	public static void printSong(SongBean song) {
+	public void printSong(SongBean song) {
 		System.out.println("\n" + "-------------------------------");
 		System.out.println("SONG:");
 		System.out.println("Artist: " + song.getArtist());

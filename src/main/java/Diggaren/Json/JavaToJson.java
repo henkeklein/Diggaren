@@ -22,7 +22,7 @@ public class JavaToJson {
 		json.setValues(channel);
 		GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
-        System.out.println(gson.toJson(json));
+  
         return gson.toJson(json);
 	}
 

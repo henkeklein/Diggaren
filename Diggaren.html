@@ -7,16 +7,23 @@
 
 <body>
     <h2>Dingata</h2>
-    <div class="allt">
-        <div class="desc">desc</div>
-        <div class="url">url</div>
+    <div class="dingata">
+        <div class="descDingata">inget spelas</div>
+        <div class="urlDingata">ingen url</div>
         
 
     </div>
     <h1>Star</h1>
-    <div class="allt1">
-        <div class="desc1">desc</div>
-        <div class="url1">url</div>
+    <div class="star">
+        <div class="descStar">inget spelas</div>
+        <div class="urlStar">ingen url</div>
+
+    </div>
+    
+    <h3>Knatte</h3>
+    <div class="kantte">
+        <div class="descKnatte">inget spelas</div>
+        <div class="urlKnatte">ingen url</div>
 
     </div>
 
@@ -33,8 +40,8 @@ $(document).ready(function (){
 
     .done(function (data){
         console.log(data);
-        $('.desc').text(data.describtion);
-        $('.url').text(data.url);
+        $('.descDingata').text(data.describtion);
+        $('.urlDingata').text(data.url);
     
 
     });
@@ -51,8 +58,26 @@ $(document).ready(function (){
 
     .done(function (data){
         console.log(data);
-        $('.desc1').text(data.describtion);
-        $('.url1').text(data.url);
+        $('.descStar').text(data.describtion);
+        $('.urlStar').text(data.url);
+    
+
+    });
+
+});
+
+$(document).ready(function (){
+    
+    $.ajax({
+        url:"http://localhost:4567/Knatte",
+        headers: {"Accept": "application/json"}
+        
+    })
+
+    .done(function (data){
+        console.log(data);
+        $('.descKnatte').text(data.describtion);
+        $('.urlKnatte').text(data.url);
     
 
     });
