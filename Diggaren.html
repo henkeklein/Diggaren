@@ -1,89 +1,89 @@
 <!DOCTYPE html public>
 <html>
 <head>
-    <title>SPOTIFY</title>
+<title>SPOTIFY</title>
 
 </head>
 
 <body>
-    <h2>Dingata</h2>
-    <div class="dingata">
-        <div class="descDingata">inget spelas</div>
-        <div class="urlDingata">ingen url</div>
-        
 
-    </div>
-    <h1>Star</h1>
-    <div class="star">
-        <div class="descStar">inget spelas</div>
-        <div class="urlStar">ingen url</div>
+	<h2>Dingata</h2>
+	<div class="dingata">
+		<div class="descDingata">inget spelas</div>
+		<div class="urlDingata">ingen url</div>
+	</div>
+	
+	<h1>Star</h1>
+	<div class="star">
+		<div class="descStar">inget spelas</div>
+		<div class="urlStar">ingen url</div>
+	</div>
 
-    </div>
-    
-    <h3>Knatte</h3>
-    <div class="kantte">
-        <div class="descKnatte">inget spelas</div>
-        <div class="urlKnatte">ingen url</div>
+	<h3>Knatte</h3>
+	<div class="kantte">
+		<div class="descKnatte">inget spelas</div>
+		<div class="urlKnatte">ingen url</div>
+	</div>
 
-    </div>
+	<button id="Add">Add</button>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
 
-    <button id="Add"> Add</button>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function (){
-    
-    $.ajax({
-        url:"http://localhost:4567/Dingata/json",
-        headers: {"Accept": "application/json"}
-        
-    })
+			$.ajax({
+				url : "http://localhost:4567/Dingata/json",
+				headers : {
+					"Accept" : "application/json"
+				}
 
-    .done(function (data){
-        console.log(data);
-        $('.descDingata').text(data.description);
-        $('.urlDingata').text(data.url);
-    
+			})
 
-    });
+			.done(function(data) {
+				console.log(data);
+				$('.descDingata').text(data.description);
+				$('.urlDingata').text(data.url);
 
-});
+			});
 
-$(document).ready(function (){
-    
-    $.ajax({
-        url:"http://localhost:4567/Star",
-        headers: {"Accept": "application/json"}
-        
-    })
+		});
 
-    .done(function (data){
-        console.log(data);
-        $('.descStar').text(data.description);
-        $('.urlStar').text(data.url);
-    
+		$(document).ready(function() {
 
-    });
+			$.ajax({
+				url : "http://localhost:4567/Star",
+				headers : {
+					"Accept" : "application/json"
+				}
 
-});
+			})
 
-$(document).ready(function (){
-    
-    $.ajax({
-        url:"http://localhost:4567/Knatte",
-        headers: {"Accept": "application/json"}
-        
-    })
+			.done(function(data) {
+				console.log(data);
+				$('.descStar').text(data.description);
+				$('.urlStar').text(data.url);
 
-    .done(function (data){
-        console.log(data);
-        $('.descKnatte').text(data.description);
-        $('.urlKnatte').text(data.url);
-    
+			});
 
-    });
+		});
 
-});
+		$(document).ready(function() {
 
-</script>
+			$.ajax({
+				url : "http://localhost:4567/Knatte",
+				headers : {
+					"Accept" : "application/json"
+				}
+
+			})
+
+			.done(function(data) {
+				console.log(data);
+				$('.descKnatte').text(data.description);
+				$('.urlKnatte').text(data.url);
+
+			});
+
+		});
+	</script>
 </body>
 </html>
