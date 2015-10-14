@@ -1,0 +1,40 @@
+<!DOCTYPE html public>
+<html>
+<head>
+    <title>SPOTIFY</title>
+
+</head>
+
+<body>
+    <h2>Spotify</h2>
+    <div class="allt">
+        <div class="desc">desc</div>
+        <div class="url">url</div>       
+    </div>
+
+    <button id="Add"> Add</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function (){
+    
+    $.ajax({
+        url:"http://localhost:4567/Dingata/json",
+        headers: {"Accept": "application/json"}
+        
+    })
+
+    .done(function (data){
+        console.log(data);
+        $('.desc').text(data.describtion);
+        $('.url').text(data.url);
+        
+
+
+    });
+
+});
+
+</script>
+</body>
+</html>
+
