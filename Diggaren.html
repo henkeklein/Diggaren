@@ -6,10 +6,18 @@
 </head>
 
 <body>
-    <h2>Spotify</h2>
+    <h2>Dingata</h2>
     <div class="allt">
         <div class="desc">desc</div>
-        <div class="url">url</div>       
+        <div class="url">url</div>
+        
+
+    </div>
+    <h1>Star</h1>
+    <div class="allt1">
+        <div class="desc1">desc</div>
+        <div class="url1">url</div>
+
     </div>
 
     <button id="Add"> Add</button>
@@ -27,8 +35,25 @@ $(document).ready(function (){
         console.log(data);
         $('.desc').text(data.describtion);
         $('.url').text(data.url);
-        
+    
 
+    });
+
+});
+
+$(document).ready(function (){
+    
+    $.ajax({
+        url:"http://localhost:4567/Star",
+        headers: {"Accept": "application/json"}
+        
+    })
+
+    .done(function (data){
+        console.log(data);
+        $('.desc').text(data.describtion);
+        $('.url').text(data.url);
+    
 
     });
 
@@ -37,4 +62,3 @@ $(document).ready(function (){
 </script>
 </body>
 </html>
-
