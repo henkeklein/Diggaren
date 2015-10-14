@@ -125,6 +125,7 @@ public class Run {
         
         
         get("/Dingata/json", (req,res) -> {
+        	res.header("Access-Control-Allow-Origin", "*");
         	res.type("text/json");
         	return json.getJson();
         });
