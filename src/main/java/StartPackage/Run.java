@@ -67,8 +67,9 @@ public class Run {
 		
 		
 		get("/Knatte", (req, res) -> {
-			app.getSpotifyLinkFirst(2755);
-			return null;
+			res.header("Access-Control-Allow-Origin", "*");
+        	res.type("text/json");
+        	return json.getJson(2755);	
 			
 		});
 		
