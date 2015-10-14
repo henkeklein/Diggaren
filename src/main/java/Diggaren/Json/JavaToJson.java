@@ -17,9 +17,9 @@ public class JavaToJson {
 //        System.out.println(gson.toJson(json));
 //	}
 	
-	public String getJson() {
+	public String getJson(int channel) {
 		CreateJson json = new CreateJson();
-		json.setValues();
+		json.setValues(channel);
 		GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
         System.out.println(gson.toJson(json));

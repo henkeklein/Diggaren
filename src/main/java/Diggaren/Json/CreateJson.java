@@ -11,10 +11,10 @@ public class CreateJson {
 	private String describtion;
 	private String url;
 
-	public void setValues() {
+	public void setValues(int channel) {
 		SpotifyStarter spotify = new SpotifyStarter();
 		SRStarter sr = new SRStarter();
-		sr.startRadio(2576);
+		sr.startRadio(channel);
 		spotify.startSpotify(sr.getFirstSong());
 
 		
