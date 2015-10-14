@@ -133,7 +133,7 @@ public class Run {
 			spotify.startSpotify(bean.getTitle());
 			String link = spotify.getLink();
 			nbr++;
-			s += "<p>" + nbr + ": " + bean.getDescribtion() + " - URL: " + "<a href="+"\""+link+"\"" + ">"+link+"</a>" + "</p>";
+			s += "<p>" + nbr + ": " + bean.getDescription() + " - URL: " + "<a href="+"\""+link+"\"" + ">"+link+"</a>" + "</p>";
 		}
 		
 		return s;

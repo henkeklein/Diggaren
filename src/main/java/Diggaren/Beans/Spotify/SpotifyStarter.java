@@ -22,8 +22,8 @@ public class SpotifyStarter {
 	SpotifyBean spotifyBean;
 	ArtistBean artistBean;
 	ItemBean itemBean;
-	static String link;
-	static String id;
+	String link;
+	String id;
 
 	public void startSpotify(String bean) {
 
@@ -94,15 +94,15 @@ public class SpotifyStarter {
 		}
 	}
 
-	private static void printUrl(ItemBean itemBean) {
+	private void printUrl(ItemBean itemBean) {
 		link = itemBean.getLink().getUrl();
-		System.out.println("\n" + "URL länk: " + link);
-		System.out.println("\n" + "-------------------------------");
+//		System.out.println("\n" + "URL länk: " + link);
+//		System.out.println("\n" + "-------------------------------");
 		
 	}
 
 	public String getLink() {
-		System.out.println(link);
+//		System.out.println(link);
 		return link;
 
 	}

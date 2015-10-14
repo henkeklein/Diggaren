@@ -8,7 +8,7 @@ import Diggaren.Beans.Spotify.SpotifyStarter;
 
 public class CreateJson {
 	
-	private String describtion;
+	private String description;
 	private String url;
 
 	public void setValues(int channel) {
@@ -19,21 +19,21 @@ public class CreateJson {
 		spotify.startSpotify(sr.getFirstSong());
 
 		
-		describtion = sr.getFirstSong();
+		description = sr.getFirstSong();
 		url = spotify.getLink();
 		
-		System.out.println(describtion + url);
+//		System.out.println(description + url);
 	}
 	
 
 	
 
 	public String getDescribtion() {
-		return describtion;
+		return description;
 	}
 
 	public void setDescribtion(String describtion) {
-		this.describtion = describtion;
+		this.description = describtion;
 	}
 
 	public String getUrl() {

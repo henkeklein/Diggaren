@@ -31,7 +31,7 @@ public class SongListBean {
 		this.title = title;
 	}
 
-	public String getDescribtion() {
+	public String getDescription() {
 		return describtion;
 	}
 
