@@ -1,11 +1,9 @@
 package StartPackage;
 
 import static spark.Spark.get;
+import static spark.Spark.port;
 
 import java.util.ArrayList;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import Diggaren.Beans.SR.ChannelList;
 import Diggaren.Beans.SR.Playlist;
@@ -26,38 +24,10 @@ public class Run {
 	private SpotifyStarter spotify;
 	private ChannelList list;
 	
-    public static void main( String[] args )
-    {
+	public static void main(String[] args) {
+		port(getHerokuAssignedPort());
     	Run app = new Run();
     	JavaToJson json = new JavaToJson();
-    	
-
-		get("/Dingata", (req, res) -> 
-			"<!DOCTYPE html>"+
-			"<html>"+
-
-			"<head>"+
-			"<title>Spotify</title>"+
-			"</head>"+
-			"<body>"+
-				"<header>"+
-					"<h1>"+
-					app.getSpotifyLinkFirst(2576) +
-					"</h1>"+
-				"</header>"+
-				"<section>"+
-					"<heading></heading>"+
- "<a href=" + "\"" + app.getLink() + "\"" + ">" + "Spotify link" + "</a>" +
-
-			                
-					"</nav>"+
-					"</section>	"+   	
-			"<footer>"+
-		
-			    "</footer>"+
-			"</body>"+
-			"</html>"
-			);
     	
 		get("/Star", (req, res) -> {
 			res.header("Access-Control-Allow-Origin", "*");
@@ -90,6 +60,15 @@ public class Run {
         });
         
     }
+
+	static int getHerokuAssignedPort() {
+		ProcessBuilder processBuilder = new ProcessBuilder();
+		if (processBuilder.environment().get("PORT") != null) {
+			return Integer.parseInt(processBuilder.environment().get("PORT"));
+		}
+		return 4567; // return default port if heroku-port isn't set (i.e. on
+						// localhost)
+	}
     
     public Run (){
     	sr = new SRStarter();
