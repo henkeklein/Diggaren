@@ -17,21 +17,29 @@
  <h1><marquee behavior="alternate" scrollamount="2">SpotRadioSong</marquee></h1>
 
 	<h2>Dingata</h2>
+    
 	<div class="dingata">
 		<div class="descDingata">Ingen låt spelas just nu</div>
 		<div class="urlDingata"></div>
+			<a id="dingata" href=""><img src="spotify.ico"height="40" width="40"></a>
 	</div>
 	
 	<h3>Star</h3>
 	<div class="star">
 		<div class="descStar">Ingen låt spelas just nu</div>
 		<div class="urlStar"></div>
+		<a id="star" href=""><img src="spotify.ico"height="40" width="40"></a>
+		
+
 	</div>
 
 	<h4>Knatte</h4>
 	<div class="kantte">
 		<div class="descKnatte">Ingen låt spelas just nu</div>
-		<div class="urlKnatte"></div>
+		<div class="urlKnatte">
+		<a id="knatte" href=""><img src="spotify.ico"height="40" width="40"></a>
+		
+		</div>
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -49,7 +57,8 @@
 			.done(function(data) {
 				console.log(data);
 				$('.descDingata').text(data.description);
-				$('.urlDingata').text(data.url);
+				var a = document.getElementById("dingata");
+				a.href = data.url;
 
 			});
 
@@ -68,7 +77,8 @@
 			.done(function(data) {
 				console.log(data);
 				$('.descStar').text(data.description);
-				$('.urlStar').text(data.url);
+				var a = document.getElementById("star");
+				a.href = data.url;
 
 			});
 
@@ -87,7 +97,8 @@
 			.done(function(data) {
 				console.log(data);
 				$('.descKnatte').text(data.description);
-				$('.urlKnatte').text(data.url);
+				var a = document.getElementById("knatte");
+				a.href = data.url;
 
 			});
 
