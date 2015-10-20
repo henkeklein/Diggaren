@@ -5,6 +5,8 @@ import static spark.Spark.port;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import Diggaren.Beans.SR.ChannelList;
 import Diggaren.Beans.SR.Playlist;
 import Diggaren.Beans.SR.SRStarter;
@@ -28,6 +30,7 @@ public class Run {
 		port(getHerokuAssignedPort());
     	Run app = new Run();
     	JavaToJson json = new JavaToJson();
+    	JOptionPane.showMessageDialog(null, "Server started");
     	
 		get("/star", (req, res) -> {
 			res.header("Access-Control-Allow-Origin", "*");
