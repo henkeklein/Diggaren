@@ -1,6 +1,11 @@
 package Diggaren.Beans.Spotify;
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Maps "external_urls" from the JSON response
+ * @author danielhertzman-ericson
+ *
+ */
 public class ItemBean {
 	@SerializedName("external_urls")
 	private LinkBean link;

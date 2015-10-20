@@ -2,9 +2,13 @@ package Diggaren.Beans.Spotify;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * 
+ * @author danielhertzman-ericson
+ *
+ */
 public class ArtistBean {
 
 	@SerializedName("href")
