@@ -29,14 +29,14 @@ public class Run {
     	Run app = new Run();
     	JavaToJson json = new JavaToJson();
     	
-		get("/Star", (req, res) -> {
+		get("/star", (req, res) -> {
 			res.header("Access-Control-Allow-Origin", "*");
         	res.type("text/json");
         	return json.getJson(1607);	
 		});
 		
 		
-		get("/Knatte", (req, res) -> {
+		get("/knatte", (req, res) -> {
 			res.header("Access-Control-Allow-Origin", "*");
         	res.type("text/json");
         	return json.getJson(2755);	
@@ -53,7 +53,7 @@ public class Run {
         });
         
         
-        get("/Dingata/json", (req,res) -> {
+        get("/dingata", (req,res) -> {
         	res.header("Access-Control-Allow-Origin", "*");
         	res.type("text/json");
         	return json.getJson(2576);
