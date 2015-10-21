@@ -32,6 +32,8 @@ public class Run {
     	JavaToJson json = new JavaToJson();
     	JOptionPane.showMessageDialog(null, "Server started");
     	
+		get("/hello", (req, res) -> "Hello World");
+
 		get("/star", (req, res) -> {
 			res.header("Access-Control-Allow-Origin", "*");
         	res.type("text/json");
