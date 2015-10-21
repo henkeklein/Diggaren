@@ -80,7 +80,7 @@
                 </descriptorRefs>
                 <archive>
                     <manifest>
-                        <mainClass>Main</mainClass>
+                        <mainClass>Run</mainClass>
                     </manifest>
                 </archive>
             </configuration>
