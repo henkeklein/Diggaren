@@ -1,7 +1,6 @@
 
 
 import static spark.Spark.get;
-import static spark.Spark.port;
 
 import java.util.ArrayList;
 
@@ -27,7 +26,6 @@ public class Run {
 	private ChannelList list;
 	
 	public static void main(String[] args) {
-		port(getHerokuAssignedPort());
     	Run app = new Run();
     	JavaToJson json = new JavaToJson();
     	JOptionPane.showMessageDialog(null, "Server started");
@@ -66,14 +64,6 @@ public class Run {
         
     }
 
-	static int getHerokuAssignedPort() {
-		ProcessBuilder processBuilder = new ProcessBuilder();
-		if (processBuilder.environment().get("PORT") != null) {
-			return Integer.parseInt(processBuilder.environment().get("PORT"));
-		}
-		return 5000; // return default port if heroku-port isn't set (i.e. on
-						// localhost)
-	}
     
     public Run (){
     	sr = new SRStarter();
