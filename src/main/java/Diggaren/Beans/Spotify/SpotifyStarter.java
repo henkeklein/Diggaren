@@ -29,6 +29,7 @@ public class SpotifyStarter {
 
 		String title = bean;
 
+
 		try {
 			title = URLEncoder.encode(title, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
@@ -36,7 +37,7 @@ public class SpotifyStarter {
 			System.out.println("Ingen låt spelas just nu");
 		}
 
-		String baseUrl = "https://api.spotify.com/v1/search?query="+title+"&offset=0&limit=20&type=track";
+		String baseUrl = "https://api.spotify.com/v1/search?query=" + title + "&offset=0&limit=20&type=track";
 
 		HttpClient httpclient = null;
 		HttpGet httpGet = null;
