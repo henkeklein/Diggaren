@@ -4,8 +4,6 @@ import static spark.Spark.get;
 
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
-
 import Diggaren.Beans.SR.ChannelList;
 import Diggaren.Beans.SR.Playlist;
 import Diggaren.Beans.SR.SRStarter;
@@ -28,16 +26,13 @@ public class Run {
 	public static void main(String[] args) {
     	Run app = new Run();
     	JavaToJson json = new JavaToJson();
-    	JOptionPane.showMessageDialog(null, "Server started");
-    	
-		get("/hello", (req, res) -> "Hello World");
+
 
 		get("/star", (req, res) -> {
 			res.header("Access-Control-Allow-Origin", "*");
         	res.type("text/json");
         	return json.getJson(1607);	
 		});
-		
 		
 		get("/knatte", (req, res) -> {
 			res.header("Access-Control-Allow-Origin", "*");
@@ -63,7 +58,6 @@ public class Run {
         });
         
     }
-
     
     public Run (){
     	sr = new SRStarter();

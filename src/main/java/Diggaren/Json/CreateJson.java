@@ -1,9 +1,6 @@
 package Diggaren.Json;
 
-import java.util.ArrayList;
-
 import Diggaren.Beans.SR.SRStarter;
-import Diggaren.Beans.SR.SongListBean;
 import Diggaren.Beans.Spotify.SpotifyStarter;
 
 public class CreateJson {
@@ -21,11 +18,7 @@ public class CreateJson {
 		
 		description = sr.getFirstSong();
 		url = spotify.getLink();
-		
-//		System.out.println(description + url);
 	}
-	
-
 	
 
 	public String getDescribtion() {

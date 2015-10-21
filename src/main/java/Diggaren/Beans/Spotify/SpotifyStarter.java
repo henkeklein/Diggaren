@@ -32,10 +32,10 @@ public class SpotifyStarter {
 		try {
 			title = URLEncoder.encode(title, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
+		} catch (NullPointerException e) {
+			System.out.println("Ingen låt spelas just nu");
 		}
 
-//		String baseUrl = "https://api.spotify.com/v1/search?type=track&limit=50&q=%27track:" + title;
 		String baseUrl = "https://api.spotify.com/v1/search?query="+title+"&offset=0&limit=20&type=track";
 
 		HttpClient httpclient = null;
@@ -82,11 +82,11 @@ public class SpotifyStarter {
 				} catch (Exception e) {
 					// Something didn't went well. No calls for us.
 					e.printStackTrace();
-					System.out.println("Det blev fel. Gå hem och sov.");
+					System.out.println("Det blev fel.");
 				}
 			} else {
 				// Something didn't went well. No calls for us.
-				System.out.println("API:t svarade inte, så du är nog ledig.");
+				System.out.println("API:t svarade inte.");
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -96,13 +96,11 @@ public class SpotifyStarter {
 
 	private void printUrl(ItemBean itemBean) {
 		link = itemBean.getLink().getUrl();
-//		System.out.println("\n" + "URL länk: " + link);
-//		System.out.println("\n" + "-------------------------------");
+
 		
 	}
 
 	public String getLink() {
-//		System.out.println(link);
 		return link;
 
 	}
