@@ -1,0 +1,81 @@
+<!DOCTYPE html public>
+<html>
+<head>
+<title>SPOTIFY</title>
+
+
+<link rel="stylesheet" href="style.css">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta name="generator" content="Geany 0.19.1" />
+
+
+</head>
+
+<body>
+	<h1>Diggaren</h1>
+
+
+	<nav class="navbar">
+		<a href="Start.html">Hem</a> <a href="Dingata.html">Dingata</a> <a
+			href="Knatte.html">Knatte</a> <a href="Star.html">Star</a>
+<a href="dokument.html">API</a>
+	</nav>
+
+	<article>
+		<h3>Diggaren API-dokumentation</h3>
+
+<h4>Inledning</h4>
+            
+<p>I den här dokumentationen kan du läsa om hur du kan använda Diggaren’s API. Det kommer finnas exempel på anrop som kan göras och vilken information du kan hämta.</p>
+
+<h4>Syfte</h4>
+        
+<p>Syftet med API’t är att användaren ska kunna hämta data från olika radiokanaler hos Sveriges Radio. Sedan kan en Spotify URL skapas av den låten som spelas just nu. Vi tror att användaren i slutändan kommer använda sig av datan i syfte att utveckla en tjänst som kan kolla upp vilken låt som spelas på en viss radiokanal och skapa Spotify-länkar av låten.</p>
+
+<h4>Målgrupp</h4>
+            
+        <p>De som helst kommer dra nytta av API’t är musikintresserade utvecklare, som vill skapa sin egen tjänst som erbjuder musik. </p>
+
+<h4>Utvecklare</h4>
+        
+<p>De som främst kommer använda API’t är vi utvecklare, som anpassar API’t för vår egna webbtjänst. Dock är API’t enkelt designat, så det inte ska vara några problem för externa utvecklare. Datan som returneras från varje URI är i JSON-format. XML är inte tillgänligt.
+De applikationer som kan tillverkas av vårt API är någon form av musikapplikation, som tillhandahåller information om vilka låtar som spelas på olika radiostationer. Man kan också tillverka en tjänst som låter en användare spara ner alla låtar i spellistor på Spotify. Möjligheterna är många.</p>
+
+<h4>Användningsområden</h4>
+            
+<p>Att använda vårt API är väldigt enkelt. Det krävs enbart att man skriver in en korrekt URL och data i JSON-format returneras. Det finns inget stöd för XML-format. 
+    Exempel på anrop: <a href="https://diggaren.herokuapp.com/dingata">https://diggaren.herokuapp.com/dingata</a> </p> 
+        
+      
+
+<p>Anropet returnerar JSON-data som innehåller information om vilken låt som spelas på radiokanalen dingata. Anropet ger också en Spotify-URL till låten som spelas. 
+De radiokanaler som är tillgängliga idag är:
+P3 Dingata
+P3 Knatte
+P3 Star
+</p>
+        
+<h4>Anrop</h4>
+            
+<p>Att göra ett anrop i vårt API är väldigt enkelt. Vår tjänst körs genom tjänsten Heroku, som förser oss med en egen domän. För att göra ett anrop anger du https://diggaren.herokuapp.com/{kanal}. 
+        </p>
+<p>Tillgängliga parametrar är:</p>
+<p>* dingata - för P3 Dingata</p>
+<p>* star - för P3 Star</p>
+<p>* knatte - för P3 Knatte</p>
+<p>Utan parameter skrivs ett 404-fel ut.</p> 
+
+        <p>Exempel på hur ett svar kan se ut:</p>
+<p>
+{
+    "description": "David Guetta & Nicki Minaj & Afrojack - Hey Mama",
+    "url": "https://open.spotify.com/track/5Ok52kEHxudhX1n2RvqyIe"
+}</p>
+
+	</article>
+
+
+
+	<footer1> Copyright © Daniel Hertzman-Ericson, Henrik Klein, Dennis Kristensson * </footer1>
+</body>
+</html>

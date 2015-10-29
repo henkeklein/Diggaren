@@ -14,6 +14,7 @@
 	<nav class="navbar">
 		<a href="Start.html">Hem</a> <a href="Dingata.html">Dingata</a> <a
 			href="Knatte.html">Knatte</a> <a href="Star.html">Star</a>
+        <a href="dokument.html">API</a>
 	</nav>
 
 	<h2>Dingata</h2>
@@ -33,7 +34,7 @@
 		$(document).ready(function() {
 
 			$.ajax({
-				url : "http://localhost:4567/dingata",
+				url : "http://diggaren.herokuapp.com/dingata",
 				headers : {
 					"Accept" : "application/json"
 				}
