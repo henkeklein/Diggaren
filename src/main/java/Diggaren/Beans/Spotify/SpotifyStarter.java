@@ -17,19 +17,28 @@ import org.apache.http.impl.client.HttpClients;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-
+/**
+ * Class that starts all the Spotify beans.
+ * @author Henrik Klein
+ *
+ */
 public class SpotifyStarter {
 	SpotifyBean spotifyBean;
 	ArtistBean artistBean;
 	ItemBean itemBean;
 	String link;
 	String id;
-
+	/**
+	 * @param bean as a titel.
+	 * Gets a titel and mapps it to a URL. Catch if no songs are played.
+	 * Call the Spotify API and sets all the HTTP and other clients to null.
+	 * Creates a new GSONbuilder.
+	 * Create the client that will call the API and call the API and verify that all went well.
+	 * If all went well it tries to parse the data as JSON.
+	 * Then iterates through all the items and prints out the url.
+	 */
 	public void startSpotify(String bean) {
-
 		String title = bean;
-
-
 		try {
 			title = URLEncoder.encode(title, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
@@ -53,20 +62,15 @@ public class SpotifyStarter {
 		SpotifyBean envelope = null;
 
 		try {
-			// Create the client that will call the API
 			httpclient = HttpClients.createDefault();
 			httpGet = new HttpGet(baseUrl);
-
-			// Call the API and verify that all went well
 			response = httpclient.execute(httpGet);
 			status = response.getStatusLine();
 			if (status.getStatusCode() == 200) {
-				// All went well. Let's fetch the data
 				entity = response.getEntity();
 				data = entity.getContent();
 
 				try {
-					// Attempt to parse the data as JSON
 					reader = new InputStreamReader(data);
 					json = builder.create();
 					envelope = json.fromJson(reader, SpotifyBean.class);
@@ -78,37 +82,37 @@ public class SpotifyStarter {
 						}
 					}
 					
-//					link = envelope.track.items.get(1).getLink().getUrl();
-					
 				} catch (Exception e) {
-					// Something didn't went well. No calls for us.
 					e.printStackTrace();
 					System.out.println("Det blev fel.");
 				}
 			} else {
-				// Something didn't went well. No calls for us.
 				System.out.println("API:t svarade inte.");
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-
+	/**
+	 * Sets link to an url link to Spotify.
+	 * @param itemBean as a ItemBean.
+	 */
 	private void printUrl(ItemBean itemBean) {
 		link = itemBean.getLink().getUrl();
-
-		
 	}
-
+	/**
+	 * 
+	 * @return a link as a String.
+	 */
 	public String getLink() {
 		return link;
-
 	}
-
+	/**
+	 * 
+	 * @return a id as a String.
+	 */
 	public String getID() {
 		return id;
-
 	}
 
 }
