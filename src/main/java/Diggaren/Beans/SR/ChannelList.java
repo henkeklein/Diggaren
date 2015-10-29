@@ -16,6 +16,11 @@ import org.apache.http.impl.client.HttpClients;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+/**
+ * Creats a list of the channels in SR
+ * @author danielhertzman-ericson
+ *
+ */
 public class ChannelList {
 	ChannelBean cBean;
 	
@@ -72,6 +77,10 @@ public class ChannelList {
 		}
 	}
 	
+	/**
+	 * Returns a list of songs
+	 * @return list of songs
+	 */
 	public ArrayList<Playlist> getChannelList (){
 		ArrayList <Playlist> list = new ArrayList<Playlist>();
 		return list;

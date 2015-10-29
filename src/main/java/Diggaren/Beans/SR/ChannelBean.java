@@ -2,6 +2,12 @@ package Diggaren.Beans.SR;
 
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Bean that holds information about id and name 
+ * in the JSON-document from SR
+ * @author danielhertzman-ericson
+ *
+ */
 public class ChannelBean {
 
 	@SerializedName("id")
@@ -10,22 +16,39 @@ public class ChannelBean {
 	@SerializedName("name")
 	private String name;
 
-	public ChannelBean() {
+	/**
+	 * Empty constructor 
+	 */
+	public ChannelBean() {}
 
-	}
-
+	/**
+	 * Returns the ID
+	 * @return id
+	 */
 	public int getId() {
 		return id;
 	}
-
+	
+	/**
+	 * Set id to the new id
+	 * @param id
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	
+	/**
+	 * Return name
+	 * @return name
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Set name to the new name
+	 * @param name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}

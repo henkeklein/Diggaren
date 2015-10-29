@@ -14,10 +14,18 @@ public class LinkSongListBean {
 	
 	public LinkSongListBean() {}
 
+	/**
+	 * Returns the song 
+	 * @return the song
+	 */
 	public String getSong() {
 		return song;
 	}
 
+	/**
+	 * Sets song to new value of song 
+	 * @param song
+	 */
 	public void setSong(String song) {
 		this.song = song;
 	}

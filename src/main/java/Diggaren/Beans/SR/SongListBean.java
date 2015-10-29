@@ -3,7 +3,8 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * Mapping objects in song.
- * Look at the following JSON response to get a head of what I'm mapping
+ * Look at the following JSON response to get a head of what I'm mapping.
+ * This one was for experimental purpose, to be used to get full list of a song from a specific day
  * 
  * http://api.sr.se/api/v2/playlists/getplaylistbyprogramid?id=2576&startdatetime=2015-10-09&format=json
  * @author danielhertzman-ericson

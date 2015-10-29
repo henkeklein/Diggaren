@@ -63,7 +63,6 @@ public class SRStarter {
 					playlist = envelope.getPlaylist();
 
 					// Print the info
-					printChannel(playlist.getChannel());
 					if (playlist.getSong() != null) {
 						printSong(playlist.getSong());
 					}
@@ -83,22 +82,8 @@ public class SRStarter {
 		}
 	}
 
-	public static void printChannel(ChannelBean channel) {
-//		System.out.println("CHANNEL:");
-//		System.out.println("Channel name: " + channel.getName());
-//		System.out.println("Channel id: " + channel.getId());
-
-	}
 
 	public void printSong(SongBean song) {
-//		System.out.println("\n" + "-------------------------------");
-//		System.out.println("SONG:");
-//		System.out.println("Artist: " + song.getArtist());
-//		System.out.println("Title: " + song.getTitle());
-//		System.out.println("Description: " + song.getDescription());
-//		System.out.println("\n" + "-------------------------------");
-
-//		firstSong = song.getArtist() + "  -  " + song.getTitle() + "  -  ";
 		firstSong = song.getDescription();
 	}
 
