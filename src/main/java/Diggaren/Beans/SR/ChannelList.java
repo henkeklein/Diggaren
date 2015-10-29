@@ -55,11 +55,7 @@ public class ChannelList {
 					envelope = json.fromJson(reader, Envelope.class);
 					playlist = envelope.getPlaylist();
 
-					// Print the info
-//					printChannel(playlist.getChannel());
-//					if (playlist.getSong() != null) {
-//						printSong(playlist.getSong());
-//					}
+				
 					
 
 				} catch (Exception e) {
