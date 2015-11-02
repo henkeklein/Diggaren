@@ -4,7 +4,8 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * Class that maps the JSON response from Spotify API
- * @author danielhertzman-ericson
+ * 
+ * @author danielhertzman-ericson, Hernik Klein, Dennis Kristensson
  *
  */
 public class TrackBean {

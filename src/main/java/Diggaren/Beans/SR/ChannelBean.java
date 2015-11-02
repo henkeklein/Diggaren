@@ -3,9 +3,9 @@ package Diggaren.Beans.SR;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Bean that holds information about id and name 
- * in the JSON-document from SR
- * @author danielhertzman-ericson
+ * Bean that holds information about id and name in the JSON-document from SR
+ * 
+ * @author danielhertzman-ericson, Hernik Klein, Dennis Kristensson
  *
  */
 public class ChannelBean {

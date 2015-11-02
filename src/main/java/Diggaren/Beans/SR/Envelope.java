@@ -1,13 +1,14 @@
 package Diggaren.Beans.SR;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-import com.google.gson.annotations.*;;
+import com.google.gson.annotations.SerializedName;;
 
 /**
- * Bean that holds information about
- * the songs in the JSON-data from SR
- * @author danielhertzman-ericson
+ * Bean that holds information about the songs in the JSON-data from SR
+ * 
+ * @author danielhertzman-ericson, Hernik Klein, Dennis Kristensson
  *
  */
 public class Envelope {

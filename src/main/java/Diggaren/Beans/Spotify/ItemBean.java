@@ -3,7 +3,8 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * Class that maps "external_urls" from the JSON response
- * @author danielhertzman-ericson
+ * 
+ * @author danielhertzman-ericson, Hernik Klein, Dennis Kristensson
  *
  */
 public class ItemBean {

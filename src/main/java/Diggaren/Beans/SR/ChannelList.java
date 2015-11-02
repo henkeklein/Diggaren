@@ -18,7 +18,8 @@ import com.google.gson.GsonBuilder;
 
 /**
  * Creats a list of the channels in SR
- * @author danielhertzman-ericson
+ * 
+ * @author danielhertzman-ericson, Hernik Klein, Dennis Kristensson
  *
  */
 public class ChannelList {

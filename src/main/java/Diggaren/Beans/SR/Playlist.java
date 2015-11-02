@@ -3,8 +3,9 @@ package Diggaren.Beans.SR;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Maps objects in the JSON-document 
- * @author danielhertzman-ericson
+ * Maps objects in the JSON-document
+ * 
+ * @author danielhertzman-ericson, Hernik Klein, Dennis Kristensson
  *
  */
 public class Playlist {

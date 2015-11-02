@@ -19,7 +19,8 @@ import com.google.gson.GsonBuilder;
 
 /**
  * Class that starts all the Spotify beans.
- * @author Henrik Klein
+ * 
+ * @author danielhertzman-ericson, Hernik Klein, Dennis Kristensson
  *
  */
 public class SpotifyStarter {

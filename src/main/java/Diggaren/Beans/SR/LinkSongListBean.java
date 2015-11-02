@@ -2,9 +2,10 @@ package Diggaren.Beans.SR;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Added some features to retrieve a whole list of songs
- * Uses the same techniques as LinkBean in Beans.Spotify
- * @author danielhertzman-ericson
+ * Added some features to retrieve a whole list of songs Uses the same
+ * techniques as LinkBean in Beans.Spotify
+ * 
+ * @author danielhertzman-ericson, Hernik Klein, Dennis Kristensson
  *
  */
 public class LinkSongListBean {

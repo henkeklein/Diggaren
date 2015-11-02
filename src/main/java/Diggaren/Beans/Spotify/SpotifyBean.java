@@ -1,8 +1,10 @@
 package Diggaren.Beans.Spotify;
 import com.google.gson.annotations.SerializedName;
+
 /**
  * Class that holds all the information from Spotify.
- * @author Henrik Klein
+ * 
+ * @author danielhertzman-ericson, Hernik Klein, Dennis Kristensson
  *
  */
 public class SpotifyBean {

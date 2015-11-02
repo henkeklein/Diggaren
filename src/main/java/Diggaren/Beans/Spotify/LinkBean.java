@@ -3,7 +3,8 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * Class that gets the url from Spotify with the correct song.
- * @author Henrik Klein
+ * 
+ * @author danielhertzman-ericson, Hernik Klein, Dennis Kristensson
  *
  */
 public class LinkBean {

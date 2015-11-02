@@ -6,7 +6,7 @@ import Diggaren.Beans.Spotify.SpotifyStarter;
 /**
  * Sets the values from the results from the both API.
  * 
- * @author danielhertzman-ericson
+ * @author danielhertzman-ericson, Hernik Klein, Dennis Kristensson
  *
  */
 public class CreateJson {

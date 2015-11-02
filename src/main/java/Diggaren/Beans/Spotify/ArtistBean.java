@@ -2,11 +2,13 @@ package Diggaren.Beans.Spotify;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
  * Bean that holds information about an artist from spotify.
- * @author danielhertzman-ericson
+ * 
+ * @author danielhertzman-ericson, Hernik Klein, Dennis Kristensson
  *
  */
 public class ArtistBean {

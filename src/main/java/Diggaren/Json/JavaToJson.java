@@ -5,7 +5,8 @@ import com.google.gson.GsonBuilder;
 
 /**
  * Transforms our final values to JSON-data
- * @author danielhertzman-ericson
+ * 
+ * @author danielhertzman-ericson, Hernik Klein, Dennis Kristensson
  *
  */
 public class JavaToJson {

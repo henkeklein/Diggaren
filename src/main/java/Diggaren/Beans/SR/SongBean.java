@@ -4,7 +4,8 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * Bean that holds information about a specific song
- * @author danielhertzman-ericson
+ * 
+ * @author danielhertzman-ericson, Hernik Klein, Dennis Kristenssons
  *
  */
 public class SongBean {
